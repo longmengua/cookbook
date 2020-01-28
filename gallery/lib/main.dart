@@ -56,10 +56,8 @@ class GalleryApp extends StatelessWidget {
             darkTheme: GalleryThemeData.darkThemeData.copyWith(
               platform: GalleryOptions.of(context).platform,
             ),
-            localizationsDelegates: [
-              ...GalleryLocalizations.localizationsDelegates,
-              LocaleNamesLocalizationsDelegate()
-            ],
+            localizationsDelegates: [LocaleNamesLocalizationsDelegate()]
+              ..addAll(GalleryLocalizations.localizationsDelegates),
             supportedLocales: GalleryLocalizations.supportedLocales,
             locale: GalleryOptions.of(context).locale,
             localeResolutionCallback: (locale, supportedLocales) {
