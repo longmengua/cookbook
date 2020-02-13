@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+///@author Waltor
+///@at 02.13.2020
+///@note it only implements on ios os, the android hasn't done yet.
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,20 +30,33 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static const platform = const MethodChannel('samples.flutter.dev/battery');
-  String _batteryLevel = 'Unknown battery level.';
+  Set<String> scannedList;
 
-  Future<void> _getBatteryLevel() async {
-    String batteryLevel;
+  @override
+  void initState() {
+    platform.setMethodCallHandler(callBackMethod);
+    scannedList = Set();
+    super.initState();
+  }
+
+  Future<bool> callBackMethod(MethodCall call) async {
     try {
-      final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = 'Battery level at $result % .';
-    } on PlatformException catch (e) {
-      batteryLevel = "Failed to get battery level: '${e.message}'.";
+      switch (call.method) {
+        case "callBack":
+          print(call.arguments);
+          scannedList.add(call.arguments);
+          setState(() {});
+      }
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
     }
+  }
 
-    setState(() {
-      _batteryLevel = batteryLevel;
-    });
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -49,18 +65,34 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(_batteryLevel),
-          ],
-        ),
+      body: Column(
+        children: <Widget>[]..addAll(scannedList.map((v) => Text(
+          v,
+          style: TextStyle(fontSize: 30),
+        ))),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.play_circle_outline),
-        onPressed: () => _getBatteryLevel,
-      ),
+        onPressed: () async {
+          final result = await platform.invokeMethod('getBatteryLevel');
+          print(result);
+//          final result = await AesCbcPKCS5Padding.encryption(
+//            key: "er6nzx10rz1000",
+//            data: "10, 20, 30, 40, 50, 60, 70, 80, 90, 100",
+//          );
+//          showDialog(
+//              context: context,
+//              builder: (context) {
+//                return new SimpleDialog(
+//                  title: Text("test"),
+//                  children: <Widget>[
+//                    Text(result ?? '-'),
+//                  ],
+//                );
+//              });
+        },
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
