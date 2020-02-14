@@ -51,12 +51,12 @@ class _StarterAppState extends State<StarterApp> {
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
       home: DefaultFocusTraversal(
-        policy: EdgeChildrenFocusTraversalPolicy(
-          firstFocusNodeOutsideScope: backButtonFocusNode,
-          lastFocusNodeOutsideScope: backButtonFocusNode,
-          firstFocusNodeInsideScope: firstFocusNode,
-          lastFocusNodeInsideScope: lastFocusNode,
-        ),
+//        policy: EdgeChildrenFocusTraversalPolicy(
+//          firstFocusNodeOutsideScope: backButtonFocusNode,
+//          lastFocusNodeOutsideScope: backButtonFocusNode,
+//          firstFocusNodeInsideScope: firstFocusNode,
+//          lastFocusNodeInsideScope: lastFocusNode,
+//        ),
         child: ApplyTextOptions(
           child: HomePage(
             firstFocusNode: firstFocusNode,

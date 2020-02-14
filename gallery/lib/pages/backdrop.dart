@@ -214,7 +214,7 @@ class _BackdropState extends State<Backdrop>
 
     final Widget frontLayer = ExcludeSemantics(
       child: DefaultFocusTraversal(
-        policy: WidgetOrderFocusTraversalPolicy(),
+//        policy: WidgetOrderFocusTraversalPolicy(),
         child: Focus(
           skipTraversal: !widget.isSettingsOpenNotifier.value,
           child: widget.frontLayer,

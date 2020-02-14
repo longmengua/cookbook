@@ -391,7 +391,7 @@ class _DesktopCategoryItem extends StatelessWidget {
       child: Semantics(
         container: true,
         child: DefaultFocusTraversal(
-          policy: WidgetOrderFocusTraversalPolicy(),
+//          policy: WidgetOrderFocusTraversalPolicy(),
           child: Column(
             children: [
               _DesktopCategoryHeader(
@@ -833,10 +833,10 @@ class _StudyWrapperState extends State<_StudyWrapper> {
     final textTheme = Theme.of(context).textTheme;
     return ApplyTextOptions(
       child: DefaultFocusTraversal(
-        policy: StudyWrapperFocusTraversalPolicy(
-          backButtonFocusNode: backButtonFocusNode,
-          studyNavigatorKey: widget.navigatorKey,
-        ),
+//        policy: StudyWrapperFocusTraversalPolicy(
+//          backButtonFocusNode: backButtonFocusNode,
+//          studyNavigatorKey: widget.navigatorKey,
+//        ),
         child: InheritedFocusNodes(
           backButtonFocusNode: backButtonFocusNode,
           child: Stack(
@@ -897,37 +897,37 @@ class InheritedFocusNodes extends InheritedWidget {
   bool updateShouldNotify(InheritedFocusNodes old) => true;
 }
 
-class StudyWrapperFocusTraversalPolicy extends WidgetOrderFocusTraversalPolicy {
-  StudyWrapperFocusTraversalPolicy({
-    @required this.backButtonFocusNode,
-    @required this.studyNavigatorKey,
-  });
-
-  final FocusNode backButtonFocusNode;
-  final GlobalKey<NavigatorState> studyNavigatorKey;
-
-  FocusNode _firstFocusNode() {
-    return studyNavigatorKey.currentState.focusScopeNode.traversalDescendants
-        .toList()
-        .first;
-  }
-
-  @override
-  bool previous(FocusNode currentNode) {
-    if (currentNode == backButtonFocusNode) {
-      return super.previous(_firstFocusNode());
-    } else {
-      return super.previous(currentNode);
-    }
-  }
-
-  @override
-  bool next(FocusNode currentNode) {
-    if (currentNode == backButtonFocusNode) {
-      _firstFocusNode().requestFocus();
-      return true;
-    } else {
-      return super.next(currentNode);
-    }
-  }
-}
+//class StudyWrapperFocusTraversalPolicy extends WidgetOrderFocusTraversalPolicy {
+//  StudyWrapperFocusTraversalPolicy({
+//    @required this.backButtonFocusNode,
+//    @required this.studyNavigatorKey,
+//  });
+//
+//  final FocusNode backButtonFocusNode;
+//  final GlobalKey<NavigatorState> studyNavigatorKey;
+//
+//  FocusNode _firstFocusNode() {
+//    return studyNavigatorKey.currentState.focusScopeNode.traversalDescendants
+//        .toList()
+//        .first;
+//  }
+//
+//  @override
+//  bool previous(FocusNode currentNode) {
+//    if (currentNode == backButtonFocusNode) {
+//      return super.previous(_firstFocusNode());
+//    } else {
+//      return super.previous(currentNode);
+//    }
+//  }
+//
+//  @override
+//  bool next(FocusNode currentNode) {
+//    if (currentNode == backButtonFocusNode) {
+//      _firstFocusNode().requestFocus();
+//      return true;
+//    } else {
+//      return super.next(currentNode);
+//    }
+//  }
+//}

@@ -32,7 +32,7 @@ class _BackLayerState extends State<BackLayer> {
   Widget build(BuildContext context) {
     final tabIndex = widget.tabController.index;
     return DefaultFocusTraversal(
-      policy: WidgetOrderFocusTraversalPolicy(),
+//      policy: WidgetOrderFocusTraversalPolicy(),
       child: IndexedStack(
         index: tabIndex,
         children: [

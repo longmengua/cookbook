@@ -27,11 +27,11 @@ class _LoginPageState extends State<LoginPage> {
         InheritedFocusNodes.of(context).backButtonFocusNode;
 
     return DefaultFocusTraversal(
-      policy: EdgeChildrenFocusTraversalPolicy(
-        firstFocusNodeOutsideScope: backButtonFocusNode,
-        lastFocusNodeOutsideScope: backButtonFocusNode,
-        focusScope: FocusScope.of(context),
-      ),
+//      policy: EdgeChildrenFocusTraversalPolicy(
+//        firstFocusNodeOutsideScope: backButtonFocusNode,
+//        lastFocusNodeOutsideScope: backButtonFocusNode,
+//        focusScope: FocusScope.of(context),
+//      ),
       child: ApplyTextOptions(
         child: Scaffold(
           body: SafeArea(

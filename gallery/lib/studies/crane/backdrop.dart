@@ -34,7 +34,7 @@ class _FrontLayer extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
 
     return DefaultFocusTraversal(
-      policy: ReadingOrderTraversalPolicy(),
+//      policy: ReadingOrderTraversalPolicy(),
       child: PhysicalShape(
         elevation: 16,
         color: cranePrimaryWhite,
@@ -130,7 +130,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
       child: Padding(
         padding: EdgeInsets.only(top: 12),
         child: DefaultFocusTraversal(
-          policy: ReadingOrderTraversalPolicy(),
+//          policy: ReadingOrderTraversalPolicy(),
           child: Scaffold(
             backgroundColor: cranePurple800,
             appBar: AppBar(
