@@ -26,7 +26,7 @@ public class HelloController {
 //            System.out.println("=============" + filePath2);
 //            String filePath = this.getClass().getResource("/hello.txt").toString();
 //            System.out.println("=============" + filePath);
-            InputStreamReader inputStreamReader = new InputStreamReader(filePath4);
+            InputStreamReader inputStreamReader = new InputStreamReader(filePath4,"UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             toReturn = bufferedReader.lines().reduce((str1, str2) -> str1 + str2).get();
 //            System.out.println(toReturn);
