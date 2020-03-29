@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:widgets/config/appLocalization.dart';
+import 'package:widgets/config/displayOption.dart';
 
 ///@author Waltor
 ///@at 02.13.2020
@@ -21,6 +23,7 @@ class AndroidStyleApp extends StatelessWidget {
       checkerboardOffscreenLayers: true,
       //home -> The widget for the default route of the app (Navigator.defaultRouteName, which is /). [...]
       home: DemoApp(),
+
       ///routes -> The application's top-level routing table. [...]
 //      routes: {
 //        '/home':(BuildContext context) => HomePage(),
@@ -66,12 +69,15 @@ class AndroidStyleApp extends StatelessWidget {
 //      onGenerateTitle: (context) {
 //        return 'Flutter应用';
 //      },
-    ///locale -> The initial locale for this app's Localizations widget is based on this value. [...]
-      locale: Locale('es', ""),//Locale(String _languageCode, [String _countryCode])
-    ///localizationsDelegates -> The most important thing to implement i18n
-      onGenerateTitle: (BuildContext context) => DemoLocalizations.of(context).title,
+      ///locale -> The initial locale for this app's Localizations widget is based on this value. [...]
+      locale: Locale('en', ""),
+      //Locale(String _languageCode, [String _countryCode])
+      ///localizationsDelegates -> The most important thing to implement i18n
+      onGenerateTitle: (BuildContext context) =>
+          DemoLocalizations.of(context).title,
       localizationsDelegates: [
         const DemoLocalizationsDelegate(),
+        LocaleNamesLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
@@ -90,9 +96,15 @@ class DemoApp extends StatelessWidget {
       appBar: AppBar(
         title: Text(DemoLocalizations.of(context).title),
       ),
-      body: Center(
-        child: Text(DemoLocalizations.of(context).title),
+      body: SingleChildScrollView(
+        child: LanguageOptions(),
       ),
     );
   }
+}
+
+class SalesData {
+  SalesData(this.year, this.sales);
+  final String year;
+  final double sales;
 }
