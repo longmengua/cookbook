@@ -1,10 +1,10 @@
-package com.example.vibration;
+package com.example.vibrationDemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VibrationApplicationTests {
+class VibrationDemoApplicationTests {
 
 	@Test
 	void contextLoads() {
