@@ -181,13 +181,13 @@ public class FFT {
      *
      ***************************************************************************/
     public static void main(String[] args) {
-        int n = Integer.parseInt("10");
-        Complex[] x = new Complex[n];
+        Complex[] x = new Complex[4];
 
-        // original data
-        for (int i = 0; i < n; i++) {
-            x[i] = new Complex(i, 0);
-        }
+        x[0] = new Complex(-0.03480425839330703, 0);
+        x[1] = new Complex(0.07910192950176387, 0);
+        x[2] = new Complex(0.7233322451735928, 0);
+        x[3] = new Complex(0.1659819820667019, 0);
+
         show(x, "x");
 
         // FFT of original data
