@@ -1,0 +1,11 @@
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
+
+app_identifier "com.h2uclub.hi365" # The bundle identifier of your app
+apple_id "zhenyang0703@gmail.com"  # Your Apple email address
+
+team_name "YONGLIN YONGLIN BIOTECH CORP."
+team_id "Z83X7QTF43"
+
+itc_team_name "YONGLIN YONGLIN BIOTECH CORP."
+itc_team_id "Z83X7QTF43"

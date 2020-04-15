@@ -1,0 +1,35 @@
+import 'dart:async';
+import 'package:bloc/bloc.dart';
+import 'package:${appName}${relative}/index.dart';
+
+class ${upperName}Bloc extends Bloc<${upperName}Event, ${upperName}State> {
+  static final ${upperName}Bloc _${privateName}BlocSingleton = ${upperName}Bloc._internal();
+  factory ${upperName}Bloc() => _${privateName}BlocSingleton;
+  ${upperName}Bloc._internal();
+
+  final ${upperName}Repository _${privateName}Repository = ${upperName}Repository();
+
+  ${upperName}State get initialState => ${upperName}State.empty();
+
+  @override
+  Stream<${upperName}State> mapEventToState(
+    ${upperName}Event event,
+  ) async* {
+    // TODO: Implement the map functions for event with state
+    if (event is Initial${upperName}) {
+      yield* _mapInitialToState();
+    } else if (event is Initialized${upperName}) {
+      yield* _mapInitializedToState();
+    }
+  }
+
+  Stream<${upperName}State> _mapInitialToState() async* {
+    // TODO: Change to the correct state
+    yield ${upperName}State.empty();
+  }
+
+  Stream<${upperName}State> _mapInitializedToState() async* {
+    // TODO: Change to the correct state
+    yield ${upperName}State.empty();
+  }
+}

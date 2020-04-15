@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+import 'package:equatable/equatable.dart';
+
+@immutable
+abstract class ${upperName}Event extends Equatable {}
+
+class Initial${upperName} extends ${upperName}Event {
+  @override
+  String toString() => 'Initial${upperName}Event';
+
+  @override
+  List<Object> get props => null;
+}
+
+class Initialized${upperName} extends ${upperName}Event {
+  @override
+  String toString() => 'Initialized${upperName}Event';
+
+  @override
+  List<Object> get props => null;
+}
