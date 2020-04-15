@@ -181,12 +181,12 @@ public class FFT {
      *
      ***************************************************************************/
     public static void main(String[] args) {
-        Complex[] x = new Complex[4];
+        Complex[] x = new Complex[2];
 
-        x[0] = new Complex(-0.03480425839330703, 0);
+        x[0] = new Complex(-0.03480425839330703, 3);
         x[1] = new Complex(0.07910192950176387, 0);
-        x[2] = new Complex(0.7233322451735928, 0);
-        x[3] = new Complex(0.1659819820667019, 0);
+//        x[2] = new Complex(0.7233322451735928, 0);
+//        x[3] = new Complex(0.1659819820667019, 0);
 
         show(x, "x");
 
