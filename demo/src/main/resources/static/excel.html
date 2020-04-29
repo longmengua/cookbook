@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+<!-- Angular Material style sheet -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+
+<!--    sheet JS    -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+
+<!--    css     -->
+<style>
+    .body {
+        margin: 30px auto;
+        padding: 20px;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .text-center {
+        text-align: center;
+    }
+    @media screen and (min-width: 600px) {
+      .body {
+
+      }
+    }
+</style>
+</head>
+<body>
+<div class="body">
+    <div class="text-center">Data and Trending</div>
+    <button onclick="excel()">download</button>
+    <input type="file" id="excelfile" onchange="parseCSVFile(this)"/>
+    <input type="button" id="viewfile" value="Export To Table" onclick="ExportToTable()" />
+    <br />
+    <br />
+    <table id="exceltable">
+    </table>
+</div>
+<script>
+    var ws = XLSX.utils.json_to_sheet([
+        { A: "S", B: "h", C: "e", D: "e", E: "t", F: "J", G: "S" },
+        { A: "S1", B: "h1", C: "e1", D: "e1", E: "t1", F: "J1", G: "S1" },
+        { A: "S2", B: "h2", C: "e2", D: "e2", E: "t2", F: "J2", G: "S2" },
+        { A: "S3", B: "h3", C: "e3", D: "e3", E: "t3", F: "J3", G: "S3" }
+    ]);
+
+    function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
+        return buf;
+    }
+
+    function excel(){
+        if(typeof require !== 'undefined') XLSX = require('xlsx');
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "People");
+        var wbout = XLSX.write(wb,{ bookType: 'xlsx', type: 'binary' });
+
+
+        saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), 'download.xlsx')
+    }
+    function ExportToTable() {
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+        /*Checks whether the file is a valid excel file*/
+        if (regex.test($("#excelfile").val().toLowerCase())) {
+            var xlsxflag = false; /*Flag for checking whether excel is .xls format or .xlsx format*/
+            if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
+                xlsxflag = true;
+            }
+            /*Checks whether the browser supports HTML5*/
+            if (typeof (FileReader) != "undefined") {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var data = e.target.result;
+                    /*Converts the excel data in to object*/
+                    if (xlsxflag) {
+                        var workbook = XLSX.read(data, { type: 'binary' });
+                    }
+                    else {
+                        var workbook = XLS.read(data, { type: 'binary' });
+                    }                       /*Gets all the sheetnames of excel in to a variable*/
+                    var sheet_name_list = workbook.SheetNames;
+
+                    var cnt = 0; /*This is used for restricting the script to consider only first sheet of excel*/
+                    sheet_name_list.forEach(function (y) { /*Iterate through all sheets*/
+                        /*Convert the cell value to Json*/
+                        if (xlsxflag) {
+                            var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                        }
+                        else {
+                            var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                        }
+                        if (exceljson.length > 0 && cnt == 0) {
+                           BindTable(exceljson, '#exceltable');
+                           cnt++;
+                        }
+                    });
+                    $('#exceltable').show();
+                }
+                if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/
+                    reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
+                }
+                else {
+                    reader.readAsBinaryString($("#excelfile")[0].files[0]);
+                }
+            }
+            else {
+                alert("Sorry! Your browser does not support HTML5!");
+            }
+        }
+        else {
+            alert("Please upload a valid Excel file!");
+        }
+    }
+
+    /*Function used to convert the JSON array to Html Table*/
+    function BindTable(jsondata, tableid) {
+        /*Gets all the column headings of Excel*/
+        var columns = BindTableHeader(jsondata, tableid);
+        for (var i = 0; i < jsondata.length; i++) {
+        var row$ = $('<tr/>');
+        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+            var cellValue = jsondata[i][columns[colIndex]];
+            if (cellValue == null)
+                cellValue = "";
+                row$.append($('<td/>').html(cellValue));
+            }
+            $(tableid).append(row$);
+        }
+    }
+
+    /*Function used to get all column names from JSON and bind the html table header*/
+    function BindTableHeader(jsondata, tableid) {
+        var columnSet = [];
+        var headerTr$ = $('<tr/>');
+        for (var i = 0; i < jsondata.length; i++) {
+            var rowHash = jsondata[i];
+            for (var key in rowHash) {
+                if (rowHash.hasOwnProperty(key)) {
+                    /*Adding each unique column names to a variable array*/
+                    if ($.inArray(key, columnSet) == -1) {
+                        columnSet.push(key);
+                        headerTr$.append($('<th/>').html(key));
+                    }
+                }
+            }
+        }
+        $(tableid).append(headerTr$);
+        return columnSet;
+    }
+
+    function parseCSVFile(event){
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var data = e.target.result;
+            debugger;
+        }
+        var xlsxflag = false;
+        if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/
+            reader.readAsArrayBuffer(event.files[0]);
+        }
+        else {
+            reader.readAsBinaryString(event.files[0]);
+        }
+    }
+</script>
+</body>
+</html>

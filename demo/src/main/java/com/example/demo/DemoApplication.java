@@ -14,14 +14,20 @@ public class DemoApplication {
 
     //LeetCode
     //a linear runtime complexity means a for-loop
-	public static int singleNumber(int[] nums) {
-		// use property of xor, any number xor with 0 is still itself
-		// every number xor with itself will be 0
-		// eg: 0 ^ 3 ^ 4 ^ 3 = 4
-		int xor = 0;
-		for (int i : nums) {
-			xor ^= i;
-		}
-		return xor;
-	}
+//	public static int singleNumber(int[] nums) {
+//		// use property of xor, any number xor with 0 is still itself
+//		// every number xor with itself will be 0
+//		// eg: 0 ^ 3 ^ 4 ^ 3 = 4
+//		int xor = 0;
+//		for (int i : nums) {
+//			xor ^= i;
+//		}
+//		return xor;
+//	}
+
+//    public void run(String... args) throws Exception {
+//        System.out.println("using environment: " + myConfig.getEnvironment());
+//        System.out.println("name: " + myConfig.getName());
+//        System.out.println("servers: " + myConfig.getServers());
+//    }
 }

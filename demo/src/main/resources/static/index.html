@@ -1,181 +1,448 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zxx">
+
 <head>
-<meta charset="UTF-8">
-<title>Title</title>
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
-
-<!-- Angular Material Library -->
-<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
-<!-- Angular Material style sheet -->
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
-
-<!--    sheet JS    -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
-
-<!--    css     -->
-<style>
-    .body {
-        margin: 30px auto;
-        padding: 20px;
-        width: 80%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-    .text-center {
-        text-align: center;
-    }
-    @media screen and (min-width: 600px) {
-      .body {
-
-      }
-    }
-</style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>pillloMart</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<div class="body">
-    <div class="text-center">Data and Trending</div>
-    <button onclick="excel()">download</button>
-    <input type="file" id="excelfile" onchange="parseCSVFile(this)"/>
-    <input type="button" id="viewfile" value="Export To Table" onclick="ExportToTable()" />
-    <br />
-    <br />
-    <table id="exceltable">
-    </table>
-</div>
-<script>
-    var ws = XLSX.utils.json_to_sheet([
-        { A: "S", B: "h", C: "e", D: "e", E: "t", F: "J", G: "S" },
-        { A: "S1", B: "h1", C: "e1", D: "e1", E: "t1", F: "J1", G: "S1" },
-        { A: "S2", B: "h2", C: "e2", D: "e2", E: "t2", F: "J2", G: "S2" },
-        { A: "S3", B: "h3", C: "e3", D: "e3", E: "t3", F: "J3", G: "S3" }
-    ]);
+    <!--::header part start::-->
+    <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent">
+                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
+                        </button>
 
-    function s2ab(s) {
-        var buf = new ArrayBuffer(s.length);
-        var view = new Uint8Array(buf);
-        for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF;
-        return buf;
-    }
+                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">about</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        product
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                        <a class="dropdown-item" href="product_list.html"> product list</a>
+                                        <a class="dropdown-item" href="single-product.html">product details</a>
+                                        
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        pages
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                        <a class="dropdown-item" href="login.html"> 
+                                            login
+                                            
+                                        </a>
+                                        <a class="dropdown-item" href="checkout.html">product checkout</a>
+                                        <a class="dropdown-item" href="cart.html">shopping cart</a>
+                                        <a class="dropdown-item" href="confirmation.html">confirmation</a>
+                                        <a class="dropdown-item" href="elements.html">elements</a>
+                                    </div>
+                                </li>
+                                
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_2"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        blog
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                        <a class="dropdown-item" href="blog.html"> blog</a>
+                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
+                                    </div>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="hearer_icon d-flex align-items-center">
+                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <a href="cart.html">
+                                <i class="flaticon-shopping-cart-black-shape"></i>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="search_input" id="search_input_box">
+            <div class="container ">
+                <form class="d-flex justify-content-between search-inner">
+                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                    <button type="submit" class="btn"></button>
+                    <span class="ti-close" id="close_search" title="Close Search"></span>
+                </form>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
 
-    function excel(){
-        if(typeof require !== 'undefined') XLSX = require('xlsx');
-        var wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "People");
-        var wbout = XLSX.write(wb,{ bookType: 'xlsx', type: 'binary' });
+    <!-- banner part start-->
+    <section class="banner_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <h1>Best quality
+                                pillow</h1>
+                            <p>Seamlessly empower fully researched 
+                                growth strategies and interoperable internal</p>
+                            <a href="product_list.html" class="btn_1">shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner_img">
+            <img src="img/banner.png" alt="#" class="img-fluid">
+            <img src="img/banner_pattern.png " alt="#" class="pattern_img img-fluid">
+        </div>
+    </section>
+    <!-- banner part start-->
+
+    <!-- product list start-->
+    <section class="single_product_list">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single_product_iner">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="single_product_img">
+                                    <img src="img/single_product_1.png" class="img-fluid" alt="#">
+                                    <img src="img/product_overlay.png" alt="#" class="product_overlay img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-sm-6">
+                                <div class="single_product_content">
+                                    <h5>Started from $10</h5>
+                                    <h2> <a href="single-product.html">Printed memory foam 
+                                        brief modern throw 
+                                        pillow case</a> </h2>
+                                    <a href="product_list.html" class="btn_3">Explore Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_product_iner">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="single_product_img">
+                                    <img src="img/single_product_2.png" class="img-fluid" alt="#">
+                                    <img src="img/product_overlay.png" alt="#" class="product_overlay img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-sm-6">
+                                <div class="single_product_content">
+                                    <h5>Started from $10</h5>
+                                    <h2> <a href="single-product.html">Printed memory foam 
+                                        brief modern throw 
+                                        pillow case</a> </h2>
+                                    <a href="product_list.html" class="btn_3">Explore Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_product_iner">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="single_product_img">
+                                    <img src="img/single_product_3.png" class="img-fluid" alt="#">
+                                    <img src="img/product_overlay.png" alt="#" class="product_overlay img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-sm-6">
+                                <div class="single_product_content">
+                                    <h5>Started from $10</h5>
+                                    <h2> <a href="single-product.html">Printed memory foam 
+                                            brief modern throw 
+                                            pillow case</a> </h2>
+                                    <a href="product_list.html" class="btn_3">Explore Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product list end-->
 
 
-        saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), 'download.xlsx')
-    }
-    function ExportToTable() {
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
-        /*Checks whether the file is a valid excel file*/
-        if (regex.test($("#excelfile").val().toLowerCase())) {
-            var xlsxflag = false; /*Flag for checking whether excel is .xls format or .xlsx format*/
-            if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
-                xlsxflag = true;
-            }
-            /*Checks whether the browser supports HTML5*/
-            if (typeof (FileReader) != "undefined") {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var data = e.target.result;
-                    /*Converts the excel data in to object*/
-                    if (xlsxflag) {
-                        var workbook = XLSX.read(data, { type: 'binary' });
-                    }
-                    else {
-                        var workbook = XLS.read(data, { type: 'binary' });
-                    }                       /*Gets all the sheetnames of excel in to a variable*/
-                    var sheet_name_list = workbook.SheetNames;
+    <!-- trending item start-->
+    <section class="trending_items">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_tittle text-center">
+                        <h2>Trending Items</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_product_item">
+                        <div class="single_product_item_thumb">
+                            <img src="img/tranding_item/tranding_item_1.png" alt="#" class="img-fluid">
+                        </div>
+                        <h3> <a href="single-product.html">Cervical pillow for airplane
+                        car office nap pillow</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_product_item">
+                        <img src="img/tranding_item/tranding_item_2.png" alt="#" class="img-fluid">
+                        <h3> <a href="single-product.html">Foam filling cotton slow rebound pillows</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_product_item">
+                        <img src="img/tranding_item/tranding_item_3.png" alt="#" class="img-fluid">
+                        <h3> <a href="single-product.html">Memory foam filling cotton Slow rebound pillows</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_product_item">
+                        <img src="img/tranding_item/tranding_item_4.png" alt="#" class="img-fluid">
+                        <h3> <a href="single-product.html">Cervical pillow for airplane
+                        car office nap pillow</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_product_item">
+                        <img src="img/tranding_item/tranding_item_5.png" alt="#" class="img-fluid">
+                        <h3> <a href="single-product.html">Foam filling cotton slow rebound pillows</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single_product_item">
+                        <img src="img/tranding_item/tranding_item_6.png" alt="#" class="img-fluid">
+                        <h3> <a href="single-product.html">Memory foam filling cotton Slow rebound pillows</a> </h3>
+                        <p>From $5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- trending item end-->
 
-                    var cnt = 0; /*This is used for restricting the script to consider only first sheet of excel*/
-                    sheet_name_list.forEach(function (y) { /*Iterate through all sheets*/
-                        /*Convert the cell value to Json*/
-                        if (xlsxflag) {
-                            var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
-                        }
-                        else {
-                            var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
-                        }
-                        if (exceljson.length > 0 && cnt == 0) {
-                           BindTable(exceljson, '#exceltable');
-                           cnt++;
-                        }
-                    });
-                    $('#exceltable').show();
-                }
-                if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/
-                    reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
-                }
-                else {
-                    reader.readAsBinaryString($("#excelfile")[0].files[0]);
-                }
-            }
-            else {
-                alert("Sorry! Your browser does not support HTML5!");
-            }
-        }
-        else {
-            alert("Please upload a valid Excel file!");
-        }
-    }
+    <!-- client review part here -->
+    <section class="client_review">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="client_review_slider owl-carousel">
+                        <div class="single_client_review">
+                            <div class="client_img">
+                                <img src="img/client.png" alt="#">
+                            </div>
+                            <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                            <h5>- Micky Mouse</h5>
+                        </div>
+                        <div class="single_client_review">
+                            <div class="client_img">
+                                <img src="img/client_1.png" alt="#">
+                            </div>
+                            <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                            <h5>- Micky Mouse</h5>
+                        </div>
+                        <div class="single_client_review">
+                            <div class="client_img">
+                                <img src="img/client_2.png" alt="#">
+                            </div>
+                            <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                            <h5>- Micky Mouse</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- client review part end -->
 
-    /*Function used to convert the JSON array to Html Table*/
-    function BindTable(jsondata, tableid) {
-        /*Gets all the column headings of Excel*/
-        var columns = BindTableHeader(jsondata, tableid);
-        for (var i = 0; i < jsondata.length; i++) {
-        var row$ = $('<tr/>');
-        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-            var cellValue = jsondata[i][columns[colIndex]];
-            if (cellValue == null)
-                cellValue = "";
-                row$.append($('<td/>').html(cellValue));
-            }
-            $(tableid).append(row$);
-        }
-    }
 
-    /*Function used to get all column names from JSON and bind the html table header*/
-    function BindTableHeader(jsondata, tableid) {
-        var columnSet = [];
-        var headerTr$ = $('<tr/>');
-        for (var i = 0; i < jsondata.length; i++) {
-            var rowHash = jsondata[i];
-            for (var key in rowHash) {
-                if (rowHash.hasOwnProperty(key)) {
-                    /*Adding each unique column names to a variable array*/
-                    if ($.inArray(key, columnSet) == -1) {
-                        columnSet.push(key);
-                        headerTr$.append($('<th/>').html(key));
-                    }
-                }
-            }
-        }
-        $(tableid).append(headerTr$);
-        return columnSet;
-    }
+    <!-- feature part here -->
+    <section class="feature_part section_padding">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-6">
+                    <div class="feature_part_tittle">
+                        <h3>Credibly innovate granular
+                        internal or organic sources
+                        whereas standards.</h3>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="feature_part_content">
+                        <p>Seamlessly empower fully researched growth strategies and interoperable internal or “organic” sources. Credibly innovate granular internal or “organic” sources whereas high standards in web-readiness.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="img/icon/feature_icon_1.svg" alt="#">
+                        <h4>Credit Card Support</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="img/icon/feature_icon_2.svg" alt="#">
+                        <h4>Online Order</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="img/icon/feature_icon_3.svg" alt="#">
+                        <h4>Free Delivery</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_feature_part">
+                        <img src="img/icon/feature_icon_4.svg" alt="#">
+                        <h4>Product with Gift</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- feature part end -->
 
-    function parseCSVFile(event){
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            var data = e.target.result;
-            debugger;
-        }
-        var xlsxflag = false;
-        if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/
-            reader.readAsArrayBuffer(event.files[0]);
-        }
-        else {
-            reader.readAsBinaryString(event.files[0]);
-        }
-    }
-</script>
+    <!-- subscribe part here -->
+    <section class="subscribe_part section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="subscribe_part_content">
+                        <h2>Get promotions & updates!</h2>
+                        <p>Seamlessly empower fully researched growth strategies and interoperable internal or “organic” sources credibly innovate granular internal .</p>
+                        <div class="subscribe_form">
+                            <input type="email" placeholder="Enter your mail">
+                            <a href="#" class="btn_1">Subscribe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subscribe part end -->
+
+    <!--::footer_part start::-->
+    <footer class="footer_part">
+        <div class="footer_iner">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-8">
+                        <div class="footer_menu">
+                            <div class="footer_logo">
+                                <a href="index.html"><img src="img/logo.png" alt="#"></a>
+                            </div>
+                            <div class="footer_menu_item">
+                                <a href="index.html">Home</a>
+                                <a href="about.html">About</a>
+                                <a href="product_list.html">Products</a>
+                                <a href="#">Pages</a>
+                                <a href="blog.html">Blog</a>
+                                <a href="contact.html">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="social_icon">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright_part">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-12">
+                        <div class="copyright_text">
+                            <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
+                            <div class="copyright_link">
+                                <a href="#">Turms & Conditions</a>
+                                <a href="#">FAQ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--::footer_part end::-->
+
+    <!-- jquery plugins here-->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- magnific popup js -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <!-- carousel js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
 </body>
+
 </html>
