@@ -1,13 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
-const publicPath = '/dist/build/';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const rootPath = path.resolve(__dirname, "");
+const rootPath = path.resolve(__dirname, "src");
+const publicPath = path.join(__dirname, '/dist/');
 
-module.exports = {
-    mode: 'development',
-    entry: {'index': './index.jsx'},
+const webpackConfig = {
+    mode: 'production',
+    entry: {'index': path.resolve(rootPath, "index.js")},
     devtool: 'cheap-module-source-map',
     plugins: [
         // Simplifies creation of HTML files to serve your webpack bundles.
@@ -22,27 +22,15 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     output: {
-        path: path.join(__dirname, publicPath),
-        filename: '[name].bundle.js',
-        publicPath: publicPath,
-        sourceMapFilename: '[name].map',
+        path: publicPath,
+        filename: '[hash].js',
+        publicPath: "",
+        sourceMapFilename: '[hash].map',
     },
     devServer: {
-        port: 3000,
-        host: 'localhost',
-        //Be possible go back pressing the "back" button at chrome
-        // historyApiFallback: true,
-        // noInfo: false,
-        // stats: 'minimal',
-        // publicPath: publicPath,
-        // contentBase: path.join(__dirname, publicPath),
-        //hotmodulereplacementeplugin
+        port: 1203,
         hot: true,
-        http2: true,
-        // https: true,
-        index: 'index.html',
-        // inline: false,
-        open: true,
+        contentBase: path.join(__dirname, publicPath),
     },
     module: {
         rules: [
@@ -59,11 +47,14 @@ module.exports = {
                 test: /\.js|.jsx?$/,
                 exclude: /(node_modules)/,
                 use: {
-                    loader: '@playlyfe/babel-loader',
+                    loader: 'babel-loader',
                     options: {
-                        // cacheDirectory: 'cache-dir-path'
+                        // cacheDirectory: 'cache-dir-path',
+                        presets: ["@babel/preset-react"],
                     }
                 }
-            }]
-    },
+            },
+        ]
+,    },
 }
+module.exports = webpackConfig;
