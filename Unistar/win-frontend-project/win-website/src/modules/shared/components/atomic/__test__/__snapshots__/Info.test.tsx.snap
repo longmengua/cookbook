@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Info/> take a snapshot 1`] = `
+<div
+  className="lottery-game"
+>
+  <h3>
+    淘宝2分彩
+  </h3>
+  <div>
+    <img
+      src="test-file-stub"
+    />
+  </div>
+</div>
+`;

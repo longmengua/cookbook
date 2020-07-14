@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WinningInfo/> take a snapshot 1`] = `
+<div
+  className="lottery-number"
+>
+  <div
+    className="open-issue"
+  >
+    第
+    <label
+      className="orange-text"
+    >
+      20190726-23
+    </label>
+    期开奖号码
+  </div>
+  <div
+    className="lottery-balls"
+  >
+    <ul>
+      <li
+        className="red-ball"
+        key="0"
+      >
+        1
+      </li>
+      <li
+        className="red-ball"
+        key="1"
+      >
+        2
+      </li>
+      <li
+        className="red-ball"
+        key="2"
+      >
+        3
+      </li>
+      <li
+        className="red-ball"
+        key="3"
+      >
+        4
+      </li>
+    </ul>
+  </div>
+</div>
+`;

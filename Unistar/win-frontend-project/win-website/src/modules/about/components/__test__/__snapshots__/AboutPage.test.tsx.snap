@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AboutPage/> take a snapshot 1`] = `
+<CommonTemplates>
+  <div
+    className="about-banner"
+  >
+    <img
+      src="test-file-stub"
+    />
+  </div>
+  <div
+    className="about-content"
+  >
+    <img
+      src="test-file-stub"
+    />
+  </div>
+</CommonTemplates>
+`;

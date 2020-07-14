@@ -1,0 +1,7 @@
+node_modules
+dist
+# jest coverage/reporter
+jest-coverage
+jest-reporter
+# webpack
+stats.json

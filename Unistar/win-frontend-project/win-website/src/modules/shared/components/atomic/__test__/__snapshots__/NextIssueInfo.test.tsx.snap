@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NextIssueInfo/> take a snapshot 1`] = `
+<div
+  className="lottery-time"
+>
+  <div
+    className="time-issue"
+  >
+    距離
+    <label
+      className="orange-text"
+    >
+      20190726-23
+    </label>
+     期开奖剩餘時間
+  </div>
+  <div
+    className="countdown"
+  >
+    <span>
+      0
+    </span>
+    <span>
+      0
+    </span>
+    <span
+      className="sepl"
+    >
+      :
+    </span>
+    <span>
+      1
+    </span>
+    <span>
+      2
+    </span>
+    <span
+      className="sepl"
+    >
+      :
+    </span>
+    <span>
+      3
+    </span>
+    <span>
+      4
+    </span>
+  </div>
+</div>
+`;
