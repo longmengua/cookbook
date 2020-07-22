@@ -37,3 +37,4 @@ lib/generated_plugin_registrant.dart
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 /reactWebDemo/node_modules/
 /uni/pf2-web-ui/node_modules/
+/reactTypescriptDemo/node_modules/
