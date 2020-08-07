@@ -7,7 +7,7 @@ const publicPath = path.join(__dirname, '/dist/');
 
 const webpackConfig = {
     mode: 'production',
-    entry: {'index': path.resolve(rootPath, "index.js")},
+    entry: {'index': path.resolve(rootPath, "index.jsx")},
     devtool: 'cheap-module-source-map',
     plugins: [
         // Simplifies creation of HTML files to serve your webpack bundles.

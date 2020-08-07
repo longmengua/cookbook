@@ -38,3 +38,5 @@ lib/generated_plugin_registrant.dart
 /reactWebDemo/node_modules/
 /uni/pf2-web-ui/node_modules/
 /reactTypescriptDemo/node_modules/
+/components/node_modules/
+/node_modules/

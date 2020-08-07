@@ -6,7 +6,7 @@ const rootPath = path.resolve(__dirname, "src");
 
 const webpackConfig = {
     mode: 'development',
-    entry: {'index': path.resolve(rootPath, "index.js")},
+    entry: {'index': path.resolve(rootPath, "index.jsx")},
     devtool: 'cheap-module-source-map',
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
