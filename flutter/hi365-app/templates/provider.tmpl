@@ -1,0 +1,16 @@
+import 'dart:async';
+
+class ${upperName}Provider {
+  Future<void> get() async {
+    print('Fetching Data...');
+    await Future.delayed(new Duration(seconds: 2));
+    print('Fetching Done!');
+  }
+
+  Future<void> post() async {
+    print('Pushing Data...');
+    await Future.delayed(new Duration(seconds: 2));
+    print('Pushing Done!');
+  }
+}
+

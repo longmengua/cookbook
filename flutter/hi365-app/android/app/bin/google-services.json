@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "117399638216",
+    "firebase_url": "https://hi365-b2622.firebaseio.com",
+    "project_id": "hi365-b2622",
+    "storage_bucket": "hi365-b2622.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117399638216:android:a171f778d80e169f",
+        "android_client_info": {
+          "package_name": "com.h2uclub.hi365"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117399638216-avtmipl72e564huemtqpmgmq9qra3nas.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.h2uclub.hi365",
+            "certificate_hash": "dbfe7af387cbde86ede4a0a3f789e2a75ad76cb1"
+          }
+        },
+        {
+          "client_id": "117399638216-je50r4hbek3uspe5ulgf0misoi18jcr1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.h2uclub.hi365",
+            "certificate_hash": "4e7a7ead4c8f0ff96f4cad6ba580944664ef6631"
+          }
+        },
+        {
+          "client_id": "117399638216-61bdtluofi2tvjbevlpineh45vksm8n7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-L9_gW_zvhtRX83TJKZxM33mdl92noS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117399638216-61bdtluofi2tvjbevlpineh45vksm8n7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "117399638216-ren737akhkseacrt3bjeu7li16fqq979.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.h2uclub.hi365"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

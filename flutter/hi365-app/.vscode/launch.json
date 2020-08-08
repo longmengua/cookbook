@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [{
+            "name": "LOCAL",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main_local.dart"
+        }, {
+            "name": "DEV",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main_dev.dart"
+        },
+        {
+            "name": "SIT",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_sit.dart"
+        },
+        {
+            "name": "UAT",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_uat.dart"
+        },
+        {
+            "name": "PROD",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_prod.dart"
+        }
+    ]
+}

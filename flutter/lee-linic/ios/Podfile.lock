@@ -1,0 +1,70 @@
+PODS:
+  - cipher2 (0.0.1):
+    - CryptoSwift (~> 0.13.1)
+    - Flutter
+  - CryptoSwift (0.13.1)
+  - Flutter (1.0.0)
+  - flutter_full_pdf_viewer (1.0.1):
+    - Flutter
+  - path_provider (0.0.1):
+    - Flutter
+  - url_launcher (0.0.1):
+    - Flutter
+  - url_launcher_macos (0.0.1):
+    - Flutter
+  - url_launcher_web (0.0.1):
+    - Flutter
+  - Zip (1.1.0)
+
+DEPENDENCIES:
+  - cipher2 (from `.symlinks/plugins/cipher2/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_full_pdf_viewer (from `.symlinks/plugins/flutter_full_pdf_viewer/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
+  - url_launcher_macos (from `.symlinks/plugins/url_launcher_macos/ios`)
+  - url_launcher_web (from `.symlinks/plugins/url_launcher_web/ios`)
+  - Zip (from `https://cm.ylhealth.org/gitlab/YongYue/Zip.git`, branch `master`)
+
+SPEC REPOS:
+  trunk:
+    - CryptoSwift
+
+EXTERNAL SOURCES:
+  cipher2:
+    :path: ".symlinks/plugins/cipher2/ios"
+  Flutter:
+    :path: Flutter
+  flutter_full_pdf_viewer:
+    :path: ".symlinks/plugins/flutter_full_pdf_viewer/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  url_launcher:
+    :path: ".symlinks/plugins/url_launcher/ios"
+  url_launcher_macos:
+    :path: ".symlinks/plugins/url_launcher_macos/ios"
+  url_launcher_web:
+    :path: ".symlinks/plugins/url_launcher_web/ios"
+  Zip:
+    :branch: master
+    :git: https://cm.ylhealth.org/gitlab/YongYue/Zip.git
+
+CHECKOUT OPTIONS:
+  Zip:
+    :commit: ec48965fe30bd37bc3adf1aedeb710250ca56afd
+    :git: https://cm.ylhealth.org/gitlab/YongYue/Zip.git
+
+SPEC CHECKSUMS:
+  cipher2: 215b8aa78b783cf5a17eb7b72fda55d025dbeefc
+  CryptoSwift: ff68c35a53e03177d31aaa2c1e8b3e010aeed6cb
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_full_pdf_viewer: 1b65139fc3236cde300ba6bea2a72669cb07f2e6
+  path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d
+  url_launcher: a1c0cc845906122c4784c542523d8cacbded5626
+  url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
+  url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
+  Zip: 83aa8e19de0bf4f925a7928943efc2502606456b
+
+PODFILE CHECKSUM: e0253739ce518653a6e7091380478db6e1ec7360
+
+COCOAPODS: 1.8.4

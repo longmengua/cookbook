@@ -1,0 +1,112 @@
+import 'package:flutter/material.dart';
+
+// Template 1
+@immutable
+class ${upperName}State {
+  final bool isLoading;
+  final bool isSuccess;
+  final bool isFailure;
+  // TODO: Add other fields mapped to UI
+
+  ${upperName}State({
+    @required this.isLoading,
+    @required this.isFailure,
+    @required this.isSuccess,
+  });
+
+  factory ${upperName}State.empty() {
+    return ${upperName}State(
+      isLoading: false,
+      isFailure: false,
+      isSuccess: false,
+    );
+  }
+
+  factory ${upperName}State.loading() {
+    return ${upperName}State(
+      isLoading: true,
+      isFailure: false,
+      isSuccess: false,
+    );
+  }
+
+  factory ${upperName}State.failure() {
+    return ${upperName}State(
+      isLoading: false,
+      isFailure: true,
+      isSuccess: false,
+    );
+  }
+
+  factory ${upperName}State.success() {
+    return ${upperName}State(
+      isLoading: false,
+      isFailure: false,
+      isSuccess: true,
+    );
+  }
+
+  ${upperName}State update(
+    // TODO: Add named parameters that will update the status mapped to UI fields.
+  ) {
+    return copyWith(
+      isLoading: false,
+      isSuccess: false,
+      isFailure: false,
+    );
+  }
+
+  ${upperName}State copyWith({
+    bool isLoading,
+    bool isSuccess,
+    bool isFailure,
+  }) {
+    return ${upperName}State(
+      isLoading: isLoading ?? this.isLoading,
+      isSuccess: isSuccess ?? this.isSuccess,
+      isFailure: isFailure ?? this.isFailure,
+    );
+  }
+
+  @override
+  String toString() {
+    return '''${upperName}State {
+      isLoading: $isLoading,
+      isSuccess: $isSuccess,
+      isFailure: $isFailure,
+    }
+    ''';
+  }
+}
+
+// Template 2
+// If you want to use this template, please remove template 1
+// and uncomment below expressions.
+// @immutable
+// abstract class ${upperName}State extends Equatable {
+//   ${upperName}State([List props = const <dynamic>[]]) : super(props);
+// }
+//
+// class Initial${upperName} extends ${upperName}State {
+//   @override
+//   String toString() => 'Initial${upperName}';
+// }
+//
+// class Loading${upperName} extends ${upperName}State {
+//   @override
+//   String toString() => 'Loading${upperName}';
+// }
+//
+// class Initialized${upperName} extends ${upperName}State {
+//   @override
+//   String toString() => 'Initialized${upperName}';
+// }
+//
+// class Error${upperName} extends ${upperName}State {
+//   Error${upperName}({this.errorMessage});
+//
+//   final String errorMessage;
+//
+//   @override
+//   String toString() => 'Error${upperName} : $errorMessage';
+// }

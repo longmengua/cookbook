@@ -1,0 +1,78 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+  end
+end
+
+lane :playground do
+  now = sh('date +"%Y_%m_%d_%H:%M"')
+  current_date = sh('date +"%Y%m%d"')
+  git_short_hash = sh('git rev-parse --short HEAD')
+  project_path=sh('pwd')
+  project_path.slice! "/ios/fastlane"
+
+  # line_notify(
+  #   access_token: "YOUR TOKEN",
+  #   message: "Hello World 🌤", #Optional String
+  #   # sticker_package_id: "1", #Optional String
+  #   # sticker_id: "133", #Optional String
+  #   # image_full_size: nil, #Optional **URL** String
+  #   # image_thumbnail: nil, #Optional **URL** String
+  # )
+end
+
+lane :sit do
+  system '(cd ../../ && flutter build ios --release -t lib/main_sit.dart --no-codesign)'
+  build_app(
+    scheme: "Runner",
+    configuration: "SIT",
+    export_method: "ad-hoc",
+    clean: true)
+end
+
+lane :uat do
+  system '(cd ../../ && flutter build ios --release -t lib/main_uat.dart --no-codesign)'
+  build_app(
+    scheme: "Runner",
+    configuration: "UAT",
+    export_method: "ad-hoc",
+    clean: true)
+end
+
+lane :beta do
+  system '(cd ../../ && flutter build ios --release -t lib/main_prod.dart --no-codesign)'
+  build_app(
+    scheme: "Runner",
+    configuration: "Release",
+    export_method: "app-store",
+    clean: true)
+  upload_to_testflight
+end
+
+lane :prod do
+  system '(cd ../../ && flutter build ios --release -t lib/main_prod.dart --no-codesign)'
+  build_app(
+    scheme: "Runner",
+    configuration: "Release",
+    export_method: "app-store",
+    clean: true)
+  upload_to_app_store
+end
