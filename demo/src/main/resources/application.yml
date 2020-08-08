@@ -1,9 +1,0 @@
-spring:
-  profiles:
-    active: dev
-  application:
-    name: eCommerce
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: update
