@@ -97,7 +97,9 @@ class DemoApp extends StatelessWidget {
         title: Text(DemoLocalizations.of(context).title),
       ),
       body: SingleChildScrollView(
-        child: LanguageOptions(),
+        child: Container(
+          child: LanguageOptions(),
+        ),
       ),
     );
   }

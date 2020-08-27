@@ -8,46 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-		3639E4FA23A7859F00E6C59D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3639E4F923A7859F00E6C59D /* Alamofire.framework */; };
-		3639E4FB23A7859F00E6C59D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3639E4F923A7859F00E6C59D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3639E4FD23A785AA00E6C59D /* MHBSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3639E4FC23A785AA00E6C59D /* MHBSdk.framework */; };
-		3639E4FE23A785AA00E6C59D /* MHBSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3639E4FC23A785AA00E6C59D /* MHBSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3662CEF823A7CEBF0087AAD3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3662CEF723A7CEBF0087AAD3 /* HealthKit.framework */; };
 		3662CEFA23A7CFE50087AAD3 /* MobileRTCResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3662CEF923A7CFE50087AAD3 /* MobileRTCResources.bundle */; };
-		3662CEFC23A7D00F0087AAD3 /* MobileRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3662CEFB23A7D00F0087AAD3 /* MobileRTC.framework */; };
-		3662CEFD23A7D00F0087AAD3 /* MobileRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3662CEFB23A7D00F0087AAD3 /* MobileRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3662CEFF23A7D2440087AAD3 /* Zoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3662CEFE23A7D2440087AAD3 /* Zoom.m */; };
 		36D59EB623A8606C0059D6DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36D59EB523A8606C0059D6DD /* GoogleService-Info.plist */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
-		3B80C3941E831B6300D905FE /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; };
-		3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		718FF8F923D1AD2500DBFC62 /* CustomMHB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718FF8F823D1AD2500DBFC62 /* CustomMHB.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
-		9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; };
-		9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9740EEBA1CF902C7004384FC /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		D48B95EAD33B95C44B996537 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB237ECD6048B573876545C /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9705A1C41CF9048500538489 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks */,
-				3639E4FE23A785AA00E6C59D /* MHBSdk.framework in Embed Frameworks */,
-				3662CEFD23A7D00F0087AAD3 /* MobileRTC.framework in Embed Frameworks */,
-				3639E4FB23A7859F00E6C59D /* Alamofire.framework in Embed Frameworks */,
-				9705A1C71CF904A300538489 /* Flutter.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		039B898BDF0AEFF77A379AAE /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,7 +37,6 @@
 		3693F9E923A8AFB600C38867 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		36D59EB523A8606C0059D6DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
-		3B80C3931E831B6300D905FE /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = Flutter/App.framework; sourceTree = "<group>"; };
 		63B38A11977F15EC8E3AC2A7 /* Pods-Runner.sit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.sit.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.sit.xcconfig"; sourceTree = "<group>"; };
 		718FF8F823D1AD2500DBFC62 /* CustomMHB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMHB.swift; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -74,7 +45,6 @@
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
-		9740EEBA1CF902C7004384FC /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = Flutter/Flutter.framework; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,11 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3662CEFC23A7D00F0087AAD3 /* MobileRTC.framework in Frameworks */,
-				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
-				3639E4FD23A785AA00E6C59D /* MHBSdk.framework in Frameworks */,
-				3639E4FA23A7859F00E6C59D /* Alamofire.framework in Frameworks */,
-				3B80C3941E831B6300D905FE /* App.framework in Frameworks */,
 				3662CEF823A7CEBF0087AAD3 /* HealthKit.framework in Frameworks */,
 				D48B95EAD33B95C44B996537 /* Pods_Runner.framework in Frameworks */,
 			);
@@ -130,9 +95,7 @@
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
-				3B80C3931E831B6300D905FE /* App.framework */,
 				3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,
-				9740EEBA1CF902C7004384FC /* Flutter.framework */,
 				9740EEB21CF90195004384FC /* Debug.xcconfig */,
 				7AFA3C8E1D35360C0083082E /* Release.xcconfig */,
 				9740EEB31CF90195004384FC /* Generated.xcconfig */,
@@ -200,7 +163,6 @@
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
 				97C146EC1CF9000F007C117D /* Resources */,
-				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				9C8FFBA16D45B60DFF2725B0 /* [CP] Embed Pods Frameworks */,
 				00DDD0A676B157E5525D43DA /* [CP] Copy Pods Resources */,
@@ -225,9 +187,9 @@
 				TargetAttributes = {
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = Z83X7QTF43;
+						DevelopmentTeam = CVHLDXD42U;
 						LastSwiftMigration = 1100;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -316,7 +278,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" thin";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
 		};
 		9740EEB61CF901F6004384FC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -445,10 +407,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = Z83X7QTF43;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_MODE = Release;
 				FLUTTER_FRAMEWORK_DIR = "";
@@ -467,9 +429,9 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MHB_API_KEY = 5602f41b9f9543e896b36365ec6dced2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.h2uclub.hi365;
+				PRODUCT_BUNDLE_IDENTIFIER = com.w.club;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.h2uclub.hi365";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SOURCE_ROOT}/../build/ios";
@@ -539,10 +501,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = Z83X7QTF43;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_MODE = Release;
 				FLUTTER_TARGET = lib/main_sit.dart;
@@ -560,9 +522,9 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MHB_API_KEY = 5602f41b9f9543e896b36365ec6dced2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.h2uclub.hi365;
+				PRODUCT_BUNDLE_IDENTIFIER = com.w.club;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.h2uclub.hi365";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SOURCE_ROOT}/../build/ios";
@@ -632,10 +594,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = Z83X7QTF43;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_MODE = Release;
 				FLUTTER_TARGET = lib/main_uat.dart;
@@ -653,9 +615,9 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MHB_API_KEY = 5602f41b9f9543e896b36365ec6dced2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.h2uclub.hi365;
+				PRODUCT_BUNDLE_IDENTIFIER = com.w.club;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.h2uclub.hi365";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SOURCE_ROOT}/../build/ios";
@@ -666,7 +628,6 @@
 		};
 		97C147031CF9000F007C117D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
@@ -724,7 +685,6 @@
 		};
 		97C147041CF9000F007C117D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
@@ -783,9 +743,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = Z83X7QTF43;
+				DEVELOPMENT_TEAM = CVHLDXD42U;
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_MODE = Release;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -802,9 +763,9 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MHB_API_KEY = 5602f41b9f9543e896b36365ec6dced2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.h2uclub.hi365;
+				PRODUCT_BUNDLE_IDENTIFIER = com.w.club;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.h2uclub.hi365";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -821,10 +782,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = Z83X7QTF43;
+				DEVELOPMENT_TEAM = CVHLDXD42U;
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_MODE = Release;
 				FLUTTER_TARGET = lib/main_prod.dart;
@@ -842,9 +803,9 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MHB_API_KEY = 5602f41b9f9543e896b36365ec6dced2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.h2uclub.hi365;
+				PRODUCT_BUNDLE_IDENTIFIER = com.w.club;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "com.h2uclub.hi365 AppStore";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SOURCE_ROOT}/../build/ios";

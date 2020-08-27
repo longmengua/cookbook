@@ -124,7 +124,6 @@ PODS:
     - Flutter
   - url_launcher_web (0.0.1):
     - Flutter
-  - Zip (1.1.0)
 
 DEPENDENCIES:
   - apple_sign_in (from `.symlinks/plugins/apple_sign_in/ios`)
@@ -143,7 +142,6 @@ DEPENDENCIES:
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
   - url_launcher_macos (from `.symlinks/plugins/url_launcher_macos/ios`)
   - url_launcher_web (from `.symlinks/plugins/url_launcher_web/ios`)
-  - Zip (from `https://cm.ylhealth.org/gitlab/YongYue/Zip.git`, branch `master`)
 
 SPEC REPOS:
   trunk:
@@ -197,14 +195,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_macos/ios"
   url_launcher_web:
     :path: ".symlinks/plugins/url_launcher_web/ios"
-  Zip:
-    :branch: master
-    :git: https://cm.ylhealth.org/gitlab/YongYue/Zip.git
-
-CHECKOUT OPTIONS:
-  Zip:
-    :commit: ec48965fe30bd37bc3adf1aedeb710250ca56afd
-    :git: https://cm.ylhealth.org/gitlab/YongYue/Zip.git
 
 SPEC CHECKSUMS:
   apple_sign_in: 7716c7ddfa195aeab7dec0dc374ef4ff45d1adb4
@@ -239,8 +229,7 @@ SPEC CHECKSUMS:
   url_launcher: a1c0cc845906122c4784c542523d8cacbded5626
   url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
   url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
-  Zip: 83aa8e19de0bf4f925a7928943efc2502606456b
 
-PODFILE CHECKSUM: 36e895aed7d384fada56eba3ff00a7f70d2fca24
+PODFILE CHECKSUM: 0612b81ffcf3a853d1b25a136c7a8b6cb7b86c0d
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
@@ -29,15 +27,18 @@ class _LanguageOptionsState extends State<LanguageOptions> {
       child: FutureBuilder<Map<String, String>>(
         future: future,
         builder: (context, snapshot) {
-          return !snapshot.hasData ? null : optionListBuilder(snapshot.data);
+          return optionListBuilder(snapshot.data) ?? Text("123");
         },
       ),
     );
   }
 
   Widget optionListBuilder(Map<String, String> data) {
-    print(data);
-    return null;
+    List<Widget> locales =
+        data.entries.map((e) => option(e.key, e.value, null)).toList() ?? [];
+    return Column(
+      children: []..addAll(locales),
+    );
   }
 
   Widget option(String title, String subTitle, Locale locale) {

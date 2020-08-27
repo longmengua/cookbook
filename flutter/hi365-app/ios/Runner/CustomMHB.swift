@@ -4,13 +4,13 @@
 //
 //  Created by waltor on 2020/1/17.
 //
-import UIKit //need to use window
-import Foundation
-import Zip
-#if arch(i386) || arch(x86_64)
-#else
-import MHBSdk
-#endif
+//import UIKit //need to use window
+//import Foundation
+//import Zip
+//#if arch(i386) || arch(x86_64)
+//#else
+//import MHBSdk
+//#endif
 
 enum MHBResult:Error {
     case configProblem
