@@ -3,24 +3,26 @@ const puppeteer = require("puppeteer")
 const {installMouseHelper} = require("../configs/mouseHelper")
 const {launchConfig} = require("../configs/launch.config")
 
-const occupations = [
-    "全職學生",
-    "全職工作者",
-    "兼職工作者(含自由業者者)",
-    "家管",
-    "退休",
-    "其他",
-]
-const educations = [
-    "國小",
-    "國中",
-    "高中職",
-    "專科",
-    "大學",
-    "碩士",
-    "博士",
-    "其他",
-]
+/**
+ education
+ <option value="">選擇教育程度</option>
+ <option value="07">國小</option>
+ <option value="06">國中</option>
+ <option value="05">高中職</option>
+ <option value="04">專科</option>
+ <option value="03">大學</option>
+ <option value="02">碩士</option>
+ <option value="01">博士</option>
+ <option value="08">其他</option>
+ occupation
+ <option value="">選擇職業</option>
+ <option value="11">全職學生</option>
+ <option value="12">全職工作者</option>
+ <option value="13">兼職工作者(含自由業者者)</option>
+ <option value="07">家管</option>
+ <option value="08">退休</option>
+ <option value="09">其他</option>
+ * */
 
 const fakeData = {
     id: "A135168605",//身分證
@@ -34,8 +36,8 @@ const fakeData = {
     companyAreaCode: "",//公司地區號碼
     companyPhone: "",//公司
     email: "aa@gmail.com",//信箱(選填)
-    education: educations[0],//教育程度(選填)
-    occupation: occupations[0],//職業
+    education: "03",//教育程度(選填)
+    occupation: "09",//職業
     householdSize: "4",//家庭人數(選填)
     memberInfos: [1,3,5,7,9],//家庭成員
     cookingStyle: [1],//主要料理風格
@@ -54,7 +56,7 @@ test("Testing register", async () => {
     await page.setViewport(launchConfig.viewport)
 
     try {
-        console.log("open url")
+        console.log("open home page")
         await page.mainFrame().goto("https://hucc:7FytdQVj@hucc-demo.estiginto.com")
         console.log("click join us")
         await expect(page).toClick('a[href="https://hucc-demo.estiginto.com/joinus"]')
@@ -81,8 +83,8 @@ test("Testing register", async () => {
         await expect(page).toFill('body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-3.col-md-3 > input', fakeData.companyAreaCode)
         await expect(page).toFill('body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-9.col-md-8 > input', fakeData.companyPhone)
         await expect(page).toFill('body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(12) > div > input', fakeData.email)
-        await expect(page).toMatchElement('option', fakeData.education)
-        await page.select('body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(18) > div > select', fakeData.occupation)
+        await page.$eval('select[name="education"]', element => element.value = "01")
+        await page.$eval('select[name="occupation"]', element => element.value = "11")
         await expect(page).toFill('input[name="household_size"]', fakeData.householdSize)
 
         for (let i of fakeData.memberInfos) {
@@ -110,7 +112,7 @@ test("Testing register", async () => {
 
         //step 2
         console.log("step 2")
-        // await expect(page).toFill('#input_gov_id', fakeData.id)
+        // await page.waitFor(300*1000) //video play
         //step 3
         // await expect(page).toFill('#input_gov_id', fakeData.id)
         //step 4

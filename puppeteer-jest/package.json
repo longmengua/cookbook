@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "jest test/2.test.js",
+    "test": "jest test/1.test.js",
+    "test-all": "jest test/*.test.js",
     "lint": "eslint --fix test/*.js *.js"
   },
   "keywords": [],

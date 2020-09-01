@@ -1,7 +1,7 @@
 const launchConfig = {
     // headless <boolean> Whether to run browser in headless mode,
     // false means not testing without launching up browser.
-    headless: false,
+    headless: true,
     // Whether to auto-open a DevTools panel for each tab. If this option is true,
     // the headless option will be set false.
     // devtools: true,
@@ -13,7 +13,7 @@ const launchConfig = {
     args:[
         '--start-maximized' // you can also use '--start-fullscreen'
     ],
-    viewport:{width:1440, height:789}
+    viewport:{width:1200, height:789}
 }
 
 module.exports = {launchConfig}
