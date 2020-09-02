@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "jsx": "preserve"
+  },
+  "include": ["configs/*.tsx","lib/*.tsx","test/*.tsx"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

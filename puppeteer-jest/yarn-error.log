@@ -1,0 +1,67 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add --dev eslint eslint-plugin-jest
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.7.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@typescript-eslint%2fjest: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:66987:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:140748:22)
+      at Request.emit (events.js:314:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141720:10)
+      at Request.emit (events.js:314:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:420:28)
+      at IncomingMessage.emit (events.js:326:22)
+      at endReadableNT (_stream_readable.js:1244:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  {
+    "name": "puppeteer-jest",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+      "test": "jest test/1.test.js",
+      "test-all": "jest test/*.test.js",
+      "lint": "eslint --ignore-pattern '/node_modules/'"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "webpack": "^4.44.1",
+      "webpack-cli": "^3.3.12",
+      "@typescript-eslint/eslint-plugin": "^4.0.1",
+      "@typescript-eslint/parser": "^4.0.1",
+      "@typescript-eslint/jest": "",
+      "eslint": "^7.8.1",
+      "eslint-config-google": "^0.14.0",
+      "eslint-plugin-react": "^7.20.6",
+      "@babel/core": "^7.11.4",
+      "@babel/preset-env": "^7.11.0",
+      "babel-jest": "^26.3.0",
+      "jest": "^26.4.2",
+      "jest-puppeteer": "^4.4.0",
+      "puppeteer": "^5.2.1"
+    },
+    "dependencies": {
+      "expect-puppeteer": "latest"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

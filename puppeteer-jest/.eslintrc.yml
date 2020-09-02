@@ -1,0 +1,32 @@
+env:
+  browser: true
+  es6: true
+  jest: true
+extends:
+  - 'plugin:react/recommended'
+  - google
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2016
+  sourceType: module
+plugins:
+  - react
+  - '@typescript-eslint'
+rules:
+  quotes:
+    - 2
+    - double
+  indent:
+    - 2
+    - 4
+  max-len: 0
+  require-jsdoc:
+    - error
+    - require:
+        FunctionDeclaration: true
+        MethodDefinition: false
+        ClassDeclaration: false
+        ArrowFunctionExpression: false
+        FunctionExpression: false

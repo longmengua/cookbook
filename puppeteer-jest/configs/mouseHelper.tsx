@@ -1,13 +1,14 @@
 // This injects a box into the page that moves with the mouse;
 // Useful for debugging
-async function mouseHelper(page) {
+const mouseHelper = async (page: any) => {
     await page.evaluateOnNewDocument(() => {
         // Install mouse helper only for top-level frame.
-        if (window !== window.parent)
-            return
+        if (window !== window.parent) {
+            return;
+        }
         window.addEventListener("DOMContentLoaded", () => {
-            const box = document.createElement("puppeteer-mouse-pointer")
-            const styleElement = document.createElement("style")
+            const box = document.createElement("puppeteer-mouse-pointer");
+            const styleElement = document.createElement("style");
             styleElement.innerHTML = `
         puppeteer-mouse-pointer {
           pointer-events: none;
@@ -44,28 +45,30 @@ async function mouseHelper(page) {
           transition: none;
           border-color: rgba(0,255,0,0.9);
         }
-      `
-            document.head.appendChild(styleElement)
-            document.body.appendChild(box)
-            document.addEventListener("mousemove", event => {
-                box.style.left = event.pageX + "px"
-                box.style.top = event.pageY + "px"
-                updateButtons(event.buttons)
-            }, true)
-            document.addEventListener("mousedown", event => {
-                updateButtons(event.buttons)
-                box.classList.add("button-" + event.which)
-            }, true)
-            document.addEventListener("mouseup", event => {
-                updateButtons(event.buttons)
-                box.classList.remove("button-" + event.which)
-            }, true)
-            function updateButtons(buttons) {
-                for (let i = 0; i < 5; i++)
-                    box.classList.toggle("button-" + i, buttons && (1 << i))
+      `;
+            document.head.appendChild(styleElement);
+            document.body.appendChild(box);
+            document.addEventListener("mousemove", (event) => {
+                box.style.left = event.pageX + "px";
+                box.style.top = event.pageY + "px";
+                updateButtons(event.buttons);
+            }, true);
+            document.addEventListener("mousedown", (event) => {
+                updateButtons(event.buttons);
+                box.classList.add("button-" + event.which);
+            }, true);
+            document.addEventListener("mouseup", (event) => {
+                updateButtons(event.buttons);
+                box.classList.remove("button-" + event.which);
+            }, true);
+            // eslint-disable-next-line require-jsdoc
+            function updateButtons(buttons: number) {
+                for (let i = 0; i < 5; i++) {
+                    // @ts-ignore
+                    box.classList.toggle("button-" + i, buttons != null && (1 << i));
+                }
             }
-        }, false)
-    })
-}
-
-module.exports = {installMouseHelper: mouseHelper}
+        }, false);
+    });
+};
+export default mouseHelper;

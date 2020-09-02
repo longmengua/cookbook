@@ -1,0 +1,14 @@
+{
+  "verbose": true,
+  "transform": {
+    ".(ts|tsx)": "ts-jest"
+  },
+  "transformIgnorePatterns": ["/node_modules/"],
+  "moduleFileExtensions": ["ts", "tsx", "js"],
+  "globals": {
+    "window": {},
+    "ts-jest": {
+      "tsConfig": "./tsconfig.json"
+    }
+  }
+}
