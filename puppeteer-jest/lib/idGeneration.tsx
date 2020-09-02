@@ -12,7 +12,7 @@ const generationOfTWDID = () => {
     // 計算總分
     let total = city[id[0].charCodeAt(0)-65];
     for (let i=1; i<=8; i++) {
-        total += eval(id[i]) * (9 - i);
+        total += eval(id[i] as string) * (9 - i);
     }
     // 計算最尾碼
     const totalArr: string[] = (total+"").split("");

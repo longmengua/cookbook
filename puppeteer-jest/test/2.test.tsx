@@ -18,10 +18,10 @@
  <option value="08">退休</option>
  <option value="09">其他</option>
  * */
-import puppeteer from "puppeteer/lib/esm/puppeteer";
 import launchConfig from "../configs/launch.config";
 import mouseHelper from "../configs/mouseHelper";
-
+import puppeteer from "puppeteer";
+import expectPuppeteer from "expect-puppeteer";
 
 const fakeData = {
     id: "A135168605", // 身分證
@@ -57,15 +57,15 @@ test("Testing register", async () => {
         console.log("open home page");
         await page.mainFrame().goto("https://hucc:7FytdQVj@hucc-demo.estiginto.com");
         console.log("click join us");
-        await expect(page).toClick("a[href=\"https://hucc-demo.estiginto.com/joinus\"]");
+        await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/joinus']");
         await page.waitForNavigation();
         console.log("click register");
-        await expect(page).toClick("a[href=\"https://hucc-demo.estiginto.com/register\"]");
+        await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/register']");
         await page.waitForNavigation();
 
         // step 0
         console.log("step 0");
-        await expect(page).toFill("#input_gov_id", fakeData.id);
+        await expectPuppeteer(page).toFill("#input_gov_id", fakeData.id);
         await page.select("#year", fakeData.year);
         await page.select("#month", fakeData.month);
         await page.select("#day", fakeData.day);
@@ -74,47 +74,47 @@ test("Testing register", async () => {
 
         // step 1
         console.log("step 1");
-        await expect(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(2) > div > input", fakeData.id);
-        await expect(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(2) > input", fakeData.mobilePhone);
-        await expect(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(4) > div > div.form-group.col-3.col-md-3 > input", fakeData.homeAreaCode);
-        await expect(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(4) > div > div.form-group.col-9.col-md-8 > input", fakeData.homePhone);
-        await expect(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-3.col-md-3 > input", fakeData.companyAreaCode);
-        await expect(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-9.col-md-8 > input", fakeData.companyPhone);
-        await expect(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(12) > div > input", fakeData.email);
+        await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(2) > div > input", fakeData.id);
+        await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(2) > input", fakeData.mobilePhone);
+        await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(4) > div > div.form-group.col-3.col-md-3 > input", fakeData.homeAreaCode);
+        await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(4) > div > div.form-group.col-9.col-md-8 > input", fakeData.homePhone);
+        await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-3.col-md-3 > input", fakeData.companyAreaCode);
+        await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-9.col-md-8 > input", fakeData.companyPhone);
+        await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(12) > div > input", fakeData.email);
         await page.$eval("select[name='education']", (element) => element.setAttribute("value", "01"));
         await page.$eval("select[name='occupation']", (element) => element.setAttribute("value", "11"));
-        await expect(page).toFill("input[name='household_size']", fakeData.householdSize);
+        await expectPuppeteer(page).toFill("input[name='household_size']", fakeData.householdSize);
 
         for (const i of fakeData.memberInfos) {
-            await expect(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(22) > div > div > div:nth-child("+i+") > label");
+            await expectPuppeteer(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(22) > div > div > div:nth-child("+i+") > label");
         }
 
         for (const i of fakeData.cookingStyle) {
-            await expect(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(26) > div > div > div:nth-child("+i+") > label");
+            await expectPuppeteer(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(26) > div > div > div:nth-child("+i+") > label");
         }
 
         for (const i of fakeData.socialConcerns) {
-            await expect(page).toClick("#Tab-A > div > div:nth-child("+i+") > label");
+            await expectPuppeteer(page).toClick("#Tab-A > div > div:nth-child("+i+") > label");
         }
 
         for (const i of fakeData.informationSource) {
-            await expect(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(32) > div > div > div:nth-child("+i+") > label");
+            await expectPuppeteer(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(32) > div > div > div:nth-child("+i+") > label");
         }
 
-        await expect(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(34) > div > div > div:nth-child("+(fakeData.newspaperSubscribe ? 1 : 2)+") > label");
-        await expect(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(36) > div > div > div:nth-child("+(fakeData.monthlyMagazineReceivedWay ? 1 : 2)+") > label");
-        await expect(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(38) > div > div > div:nth-child("+(fakeData.cardReceivedWay ? 1 : 2)+") > label");
-        await expect(page).toClick("input[id='agree-term']");
-        await expect(page).toClick("input[type='submit']");
+        await expectPuppeteer(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(34) > div > div > div:nth-child("+(fakeData.newspaperSubscribe ? 1 : 2)+") > label");
+        await expectPuppeteer(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(36) > div > div > div:nth-child("+(fakeData.monthlyMagazineReceivedWay ? 1 : 2)+") > label");
+        await expectPuppeteer(page).toClick("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(38) > div > div > div:nth-child("+(fakeData.cardReceivedWay ? 1 : 2)+") > label");
+        await expectPuppeteer(page).toClick("input[id='agree-term']");
+        await expectPuppeteer(page).toClick("input[type='submit']");
         await page.waitForNavigation();
 
         // step 2
         console.log("step 2");
         // await page.waitFor(300*1000) //video play
         // step 3
-        // await expect(page).toFill('#input_gov_id', fakeData.id)
+        // await expectPuppeteer(page).toFill('#input_gov_id', fakeData.id)
         // step 4
-        // await expect(page).toFill('#input_gov_id', fakeData.id)
+        // await expectPuppeteer(page).toFill('#input_gov_id', fakeData.id)
     } finally {
         await page.waitFor(10000);
         await browser.close();
