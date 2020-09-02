@@ -14,6 +14,10 @@ const fakeData = {
     password: "a1234567",
 };
 describe("Testing login feature", async () => {
+    beforeAll( async ()=> {
+
+    });
+
     it("Testing login", async () => {
         const browser = await puppeteer.launch(launchConfig);
         const page = await browser.newPage();
