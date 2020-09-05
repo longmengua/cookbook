@@ -1,0 +1,5 @@
+type ReactFCProps = {
+
+}
+
+export {ReactFCProps}

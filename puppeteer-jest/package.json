@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "jest test/3.test.tsx",
+    "test": "jest test/4.test.tsx",
     "test-all": "jest test/*.test.tsx",
     "lint": "eslint --fix */*.tsx --ignore-pattern '/node_modules/'"
   },

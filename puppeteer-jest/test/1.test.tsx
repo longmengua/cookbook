@@ -1,38 +1,67 @@
+import generationOfTWDID from "../lib/idGeneration";
+import passwordGeneration from "../lib/passwordGeneration";
 import launchConfig from "../configs/launch.config";
 import mouseHelper from "../configs/mouseHelper";
-import puppeteer from "puppeteer";
+import puppeteer, {Browser, Page} from "puppeteer";
 import expectPuppeteer from "expect-puppeteer";
 
 
-test("Testing navigation bars.", async () => {
-    const browser = await puppeteer.launch(launchConfig);
-    const page = await browser.newPage();
-    await mouseHelper(page);
-    await page.setViewport(launchConfig.viewport);
-    const links = [
-        "https://hucc-demo.estiginto.com/location/list",
-        "https://hucc-demo.estiginto.com/joinus",
-        "",
-        "https://hucc-demo.estiginto.com/member",
-        "https://hucc-demo.estiginto.com/shopping_cart",
-    ];
+describe("測試", () => {
+    let browser: Browser;
+    let page: Page;
+    beforeAll( async ()=> {
+        browser = await puppeteer.launch(launchConfig);
+        page = await browser.newPage();
+        await mouseHelper(page);
+        await page.setViewport(launchConfig.viewport);
+        await page.mainFrame().goto("https://hucc:7FytdQVj@hucc-demo.estiginto.com");
+    }, 60*1000);
 
-    try {
-        console.log("open home page.");
-        await page.goto("https://hucc:7FytdQVj@hucc-demo.estiginto.com");
-        console.log("there should be 5 buttons in navigation bar.");
-        const elements = await page.$$(".single-icon");
-        expect(elements).toHaveLength(5);
-        console.log("check each link");
-        for (let i = 0; i < elements.length; i++) {
-            if (links[i] === "") continue;
-            console.log("click the link", links[i]);
-            await expectPuppeteer(page).toClick("a[href=\""+links[i]+"\"]");
-            await page.waitForNavigation();
-            console.log("go back");
-            await page.goBack();
-        }
-    } finally {
+    it("一般社員可以從登入畫面正常登入", async () => {
+        const accountInfo = {
+            id: "A222557716",
+            password: "a1234567",
+        };
+        // navigate to login page
+        await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/member']");
+        await page.waitForNavigation();
+        await expect(await page.mainFrame().evaluate("location.href")).toBe("https://hucc-demo.estiginto.com/login");
+        // enter account info
+        await expectPuppeteer(page).toFill("input[name='gov_id']", accountInfo.id);
+        await expectPuppeteer(page).toFill("input[name='password']", accountInfo.password);
+        // click login button
+        await expectPuppeteer(page).toClick("#form-submit");
+        await page.waitForNavigation();
+        // except the url will be http://hucc.test/member
+        await expect(await page.mainFrame().evaluate("location.href")).toBe("https://hucc-demo.estiginto.com/member");
+    }, 60*1000);
+
+    it("一般社員可以從社員專區登出", async () => {
+        await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/logout']");
+        await page.waitForNavigation();
+        await expect(await page.mainFrame().evaluate("location.href")).toBe("https://hucc-demo.estiginto.com/");
+    }, 60*1000);
+
+    it("一般社員從登入畫面輸入錯誤密碼無法登入", async ()=>{
+        await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/member']");
+        await page.waitForNavigation();
+        await expect(await page.mainFrame().evaluate("location.href")).toBe("https://hucc-demo.estiginto.com/login");
+        // enter account info
+        await expectPuppeteer(page).toFill("input[name='gov_id']", generationOfTWDID());
+        await expectPuppeteer(page).toFill("input[name='password']", passwordGeneration());
+        // click login button
+        await expectPuppeteer(page).toClick("#form-submit");
+        await page.waitForNavigation();
+        // expect the error msg shows up.
+        const string = await page.evaluate(() => document.querySelector("div[class='alert alert-danger']").textContent.indexOf("使用者名稱或密碼錯誤") > -1);
+        expect(string).toBe(true);
+    }, 60*1000);
+
+    // it("", async ()=>{});
+    // it("", async ()=>{});
+    // it("", async ()=>{});
+
+    afterAll(async ()=>{
         await browser.close();
-    }
-}, 60*1000);
+    }, 60*1000);
+});
