@@ -81,8 +81,8 @@ test("Testing register", async () => {
         await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-3.col-md-3 > input", fakeData.companyAreaCode);
         await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(10) > div > div > div:nth-child(6) > div > div.form-group.col-9.col-md-8 > input", fakeData.companyPhone);
         await expectPuppeteer(page).toFill("body > div.body-inner > section > div > div > div:nth-child(1) > form > div:nth-child(12) > div > input", fakeData.email);
-        await page.$eval("select[name='education']", (element) => element.setAttribute("value", "01"));
-        await page.$eval("select[name='occupation']", (element) => element.setAttribute("value", "11"));
+        await page.$eval("select[name='education']", (element) => element.setAttribute("value", fakeData.education));
+        await page.$eval("select[name='occupation']", (element) => element.setAttribute("value", fakeData.occupation));
         await expectPuppeteer(page).toFill("input[name='household_size']", fakeData.householdSize);
 
         for (const i of fakeData.memberInfos) {
