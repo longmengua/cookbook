@@ -2,7 +2,7 @@ import generationOfTWDID from "../lib/idGeneration";
 import passwordGeneration from "../lib/passwordGeneration";
 import launchConfig from "../configs/launch.config";
 import mouseHelper from "../configs/mouseHelper";
-import puppeteer, {Browser, Page} from "puppeteer";
+import puppeteer, {Browser, ElementHandle, Page} from "puppeteer";
 import expectPuppeteer from "expect-puppeteer";
 
 
@@ -72,12 +72,11 @@ describe("測試", () => {
         const information = {
             name: "收件人姓名", // 收件人姓名
             phone: "0987654321", // 手機
-            homeAreaCode: "0987654321", // 住宅
+            homeAreaCode: "203", // 住宅
             homePhone: "0987654321", // 住宅
             mail: "xx@google.com", // 收件人電子信箱
             addressAreaCode: "002", // 收件地址
             street: "xxx, xxx, xxx", // 詳細地址
-
         };
         // navigate to create address page
         await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/member/address/add']");
@@ -113,11 +112,55 @@ describe("測試", () => {
         expect(addressListLength == elements.length).toBe(true);// the amount should be same after delete.
     });
 
-    it("一般社員可以從社員專區登出", async () => {
-        await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/logout']");
+    it("一般社員可以正常結帳一般訂單並檢視訂單詳細資訊 (ATM)", async ()=>{
+        const amountOfBuying = 2;// 購買數量
+        await page.goto("https://hucc-demo.estiginto.com/product/list");
+        const products :ElementHandle[] = await page.$$(".product-sale-off");
+        for (let i = 0; i < amountOfBuying; i++) {
+            const product = await products[Math.ceil(Math.random() * products.length -1)];
+            const string = await (await product.getProperty("innerHTML")).jsonValue();
+            if (string.toString().indexOf("暫無庫存") > -1) {
+                i--;
+                continue;
+            }
+            await product.click();
+            await page.waitForSelector(".swal2-confirm");
+            await expectPuppeteer(page).toClick(".swal2-confirm");
+            await page.waitForSelector(".swal2-confirm", {visible: false});
+            await page.waitFor(1000);
+            await page.waitForSelector(".swal2-confirm", {visible: true});
+            await expectPuppeteer(page).toClick(".swal2-confirm");
+            await page.waitForSelector(".swal2-confirm", {visible: false});
+            await page.waitFor(1000);
+        }
+        expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/shopping_cart']");
         await page.waitForNavigation();
-        await expect(await page.evaluate("location.href")).toBe("https://hucc-demo.estiginto.com/");
+        await expect(await page.evaluate("location.href")).toBe("https://hucc-demo.estiginto.com/shopping_cart");
+        // await expectPuppeteer(page).toClick("#member_address");
+        // const memberAddresses :ElementHandle[] = await page.$$("#member_address > option");
+        // await expect(memberAddresses.length > 1).toBe(true);
+        // const target = await memberAddresses[1];
+        // await page.waitForSelector("#member_address > option", {visible: true})
+        // await target.select();
+        await expectPuppeteer(page).toClick("#member_address > option:last-child");
+        await expectPuppeteer(page).toClick(".btn.btn-github");
+        await page.waitForNavigation();
+        expectPuppeteer(page).toClick("#B-tab");
+        await page.waitForNavigation();
+        expectPuppeteer(page).toClick("#B-tab2");
+        expectPuppeteer(page).toClick("#submit_button");
+        await page.waitForNavigation();
     }, 60*1000);
+
+    // it("一般社員可以正常結帳預購訂單並檢視訂單詳細資訊 (ATM)", async ()=>{
+    //     await page.goto("https://hucc-demo.estiginto.com/product/list");
+    // });
+    //
+    // it("一般社員可以從社員專區登出", async () => {
+    //     await expectPuppeteer(page).toClick("a[href='https://hucc-demo.estiginto.com/logout']");
+    //     await page.waitForNavigation();
+    //     await expect(await page.evaluate("location.href")).toBe("https://hucc-demo.estiginto.com/");
+    // }, 60*1000);
 
     afterAll(async ()=>{
         await browser.close();
