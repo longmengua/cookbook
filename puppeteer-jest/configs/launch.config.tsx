@@ -1,7 +1,7 @@
 const launchConfig = {
     // headless <boolean> Whether to run browser in headless mode,
     // false means not testing without launching up browser.
-    headless: true,
+    headless: false,
     // Whether to auto-open a DevTools panel for each tab. If this option is true,
     // the headless option will be set false.
     // devtools: true,
