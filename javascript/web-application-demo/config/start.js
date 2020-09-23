@@ -19,11 +19,13 @@ const resolve = {
 
 const entry = {
 	index: "./src/index.js",
+	index_t: "./src/index_t.tsx",
 };
 
 const output = {
 	path: path.resolve("static"),
-	filename: "[hash:8].js",
+	// filename: "[hash:8].js",
+	filename: "[name].js",
 };
 
 const plugins = [
@@ -47,8 +49,8 @@ const _module = {
 		// 	use: [{
 		// 		loader: 'babel-loader',
 		// 		/**
-       // * @Note this configuration is react
-       // * */
+		// * @Note this configuration is react
+		// * */
 		// 		// options: {
 		// 		//     presets: ['@babel/preset-react'],
 		// 		// }
