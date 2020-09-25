@@ -4,9 +4,14 @@ import "./index_c";
 
 function App() {
 	return (
-		<div className="App">
-			Index start
-		</div>
+		<>
+			<div className="Ap">
+				Sass
+			</div>
+			<div className="App">
+				Pure Css
+			</div>
+		</>
 	);
 }
 
