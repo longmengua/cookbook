@@ -1,9 +1,11 @@
 import React from "react";
+import "./index";
+import "./index_c";
 
 function App() {
 	return (
 		<div className="App">
-			App start
+			Index start
 		</div>
 	);
 }

@@ -13,18 +13,16 @@ const devServer = {
 };
 
 const resolve = {
-	extensions: [ '.tsx', '.ts', '.js' ],
+	extensions: [ '.tsx', '.ts', '.js', '.css', '.sass', '.scss' ],
 	modules: ["node_modules"],
 };
 
 const entry = {
-	index: "./src/index.js",
-	index_t: "./src/index_t.tsx",
+	index_r: "./src/index_r.tsx",
 };
 
 const output = {
-	path: path.resolve("static"),
-	// filename: "[hash:8].js",
+	path: path.resolve("dist"),
 	filename: "[name].js",
 };
 
@@ -32,7 +30,7 @@ const plugins = [
 	new webpack.HotModuleReplacementPlugin(),
 	new HtmlWebpackPlugin({
 		template: 'index.html'
-	})
+	}),
 ];
 
 const _module = {
@@ -56,6 +54,14 @@ const _module = {
 		// 		// }
 		// 	}]
 		// },
+		// {
+		// 	test: /\.vue$/,
+		// 	loader: 'vue-loader',
+		// 	exclude: /node_modules/,
+		// 	include: [
+		// 		path.resolve(root,"src/Vue")
+		// 	],
+		// },
 		/**
    * @Note tpyescript
    * @Steps
@@ -65,8 +71,28 @@ const _module = {
    * */
 		{
 			test: /\.tsx?$/,
-			use: 'ts-loader',
 			exclude: /node_modules/,
+			include: path.resolve(root,"src"),
+			use: 'ts-loader',
+		},
+		{
+			test: /\.css$/i,
+			exclude: /node_modules/,
+			include: path.resolve(root,'src'),
+			use: [
+				'style-loader',
+				'css-loader',
+			],
+		},
+		{
+			test: /\.s[ac]ss$/i,
+			exclude: /node_modules/,
+			include: path.resolve(root,'src'),
+			use: [
+				'style-loader',
+				'css-loader',
+				'sass-loader',
+			],
 		},
 	],
 };

@@ -51,13 +51,13 @@ void main() {
   runApp(
     MultiBlocProvider(
       providers: _blocProviders,
-      child: App(),
+      child: Index(),
     ),
   );
 }
 
-class App extends StatelessWidget {
-  App({Key key}) : super(key: key);
+class Index extends StatelessWidget {
+  Index({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

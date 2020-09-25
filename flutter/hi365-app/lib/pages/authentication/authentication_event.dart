@@ -18,7 +18,7 @@ abstract class AuthenticationEvent {
   final LoginRepository _loginRepository = LoginRepository();
 }
 
-/// App Start
+/// Index Start
 class AppStart extends AuthenticationEvent {
   @override
   String toString() => 'AppStart';

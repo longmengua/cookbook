@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
+    "module": "es2015",
     "target": "es5",
+    "strict": true,
     "allowSyntheticDefaultImports": true,
-    "module": "esnext",
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "jsx": "react"
+    "jsx": "react",
+    //experimentalDecorators is for decorator
+    "experimentalDecorators": true
   },
   "include": [
     "src"

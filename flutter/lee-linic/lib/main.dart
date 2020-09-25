@@ -8,9 +8,9 @@ import 'config/chineseCupertinoLocalizations.dart';
 import 'home/homeBloc.dart';
 import 'home/homeView.dart';
 
-void main() => runApp(App());
+void main() => runApp(Index());
 
-class App extends StatelessWidget {
+class Index extends StatelessWidget {
   final List<BlocProvider> _blocProviders = [
     BlocProvider<HomeBloc>(
       create: (context) => HomeBloc(context),
