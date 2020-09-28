@@ -1,15 +1,20 @@
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-// const env = require("./env")
+
 const root = path.resolve("");
 
 const devServer = {
-	contentBase: path.join("public"),
-	compress: true,
 	port: 1234,
+	index: path.resolve("dist/index.html"),
+	contentBase: path.resolve("dist"),
+	compress: true,
 	hot: true,
-	index: 'index.html',
+	// useLocalIp: true,
+	// When devServer.lazy is enabled, the dev-server will only compile the bundle when it gets requested.
+	// This means that webpack will not watch any file changes. We call this lazy mode.
+	lazy: true,
 };
 
 const resolve = {
@@ -18,7 +23,7 @@ const resolve = {
 };
 
 const entry = {
-	index_r: "./src/index_r.tsx",
+	index: "./src/index_r.tsx",
 };
 
 const output = {
@@ -31,6 +36,7 @@ const plugins = [
 	new HtmlWebpackPlugin({
 		template: 'index.html'
 	}),
+	new CleanWebpackPlugin(),
 ];
 
 const _module = {
@@ -97,14 +103,51 @@ const _module = {
 	],
 };
 
+//https://juejin.im/post/6844903450644316174
+const devtool = "cheap-module-source-map";
+
+const performance = {
+	hints: "warning",
+	maxEntrypointSize: 512000,
+	maxAssetSize: 512000,
+};
+
+const optimization = {
+	splitChunks: {
+		chunks: 'async',
+		minSize: 20000,
+		// minRemainingSize: 0,
+		maxSize: 0,
+		minChunks: 1,
+		maxAsyncRequests: 30,
+		maxInitialRequests: 30,
+		automaticNameDelimiter: '~',
+		enforceSizeThreshold: 50000,
+		cacheGroups: {
+			defaultVendors: {
+				test: /node_modules/,
+				priority: -10
+			},
+			default: {
+				minChunks: 2,
+				priority: -20,
+				reuseExistingChunk: true
+			}
+		}
+	}
+};
+
 const config = {
-	mode: 'none',
+	mode: 'production',//set up as production will auto minify the js files.
 	module: _module,
 	entry,
 	output,
 	devServer,
 	resolve,
 	plugins,
+	// devtool,
+	performance,
+	optimization
 };
 
 module.exports = config;
