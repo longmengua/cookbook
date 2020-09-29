@@ -7,15 +7,15 @@ const root = path.resolve("");
 
 const devServer = {
 	port: 1234,
-	index: "index.html",
+	index: path.resolve("dist/index.html"),
 	contentBase: path.resolve("dist"),
 	contentBasePublicPath: '/demo',
 	compress: true,
 	hot: true,
+	// lazy: true,
 	// useLocalIp: true,
 	// When devServer.lazy is enabled, the dev-server will only compile the bundle when it gets requested.
 	// This means that webpack will not watch any file changes. We call this lazy mode.
-	lazy: true,
 	https: true,
 	headers: {
 		"test-header":"demo-header"
@@ -45,11 +45,11 @@ const output = {
 };
 
 const plugins = [
-	new webpack.HotModuleReplacementPlugin(),
 	new HtmlWebpackPlugin({
 		template: 'index.html'
 	}),
-	new CleanWebpackPlugin(),//could not execute with turing on hot-reload option.
+	new webpack.HotModuleReplacementPlugin(),// When using hot-reload, the CleanWebpackPlugin and devServer.lazy cannot turn on.
+	// new CleanWebpackPlugin(),
 ];
 
 const _module = {

@@ -6,7 +6,7 @@ function App() {
 	return (
 		<>
 			<div className="Ap">
-				Sass
+				Sass=
 			</div>
 			<div className="App">
 				Pure Css

@@ -5,8 +5,8 @@
   "scripts": {
     "lint": "eslint --fix src/*/*.tsx src/*.tsx --ignore-pattern '/node_modules/'",
     "build": "webpack --config config/build.js",
-    "launch": "webpack-dev-server --config config/build.js",
-    "start:prod": "npm run lint & npm run build & npm run launch"
+    "start:dev": "webpack-dev-server --config config/build.js",
+    "start:prod": "npm run lint & npm run build & npm run start:dev"
   },
   "keywords": [],
   "author": "",
