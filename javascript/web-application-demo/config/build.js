@@ -7,14 +7,27 @@ const root = path.resolve("");
 
 const devServer = {
 	port: 1234,
-	index: path.resolve("dist/index.html"),
+	index: "index.html",
 	contentBase: path.resolve("dist"),
+	contentBasePublicPath: '/demo',
 	compress: true,
 	hot: true,
 	// useLocalIp: true,
 	// When devServer.lazy is enabled, the dev-server will only compile the bundle when it gets requested.
 	// This means that webpack will not watch any file changes. We call this lazy mode.
 	lazy: true,
+	https: true,
+	headers: {
+		"test-header":"demo-header"
+	},
+	historyApiFallback: {
+		// index: 'dist/index.html',
+		// rewrites: [
+		// 	// { from: /^\/$/, to: '/demo' },
+		// 	{ from: /^\/subpage/, to: '/dist/index.html' },
+		// 	{ from: /./, to: '/404.html' }
+		// ]
+	}
 };
 
 const resolve = {
@@ -28,7 +41,7 @@ const entry = {
 
 const output = {
 	path: path.resolve("dist"),
-	filename: "[name].js",
+	filename: "[hash:10].[name].js",
 };
 
 const plugins = [
@@ -36,7 +49,7 @@ const plugins = [
 	new HtmlWebpackPlugin({
 		template: 'index.html'
 	}),
-	new CleanWebpackPlugin(),
+	new CleanWebpackPlugin(),//could not execute with turing on hot-reload option.
 ];
 
 const _module = {
@@ -100,6 +113,13 @@ const _module = {
 				'sass-loader',
 			],
 		},
+		{
+			test: /\.(png|jpe?g|gif)$/i,
+			loader: 'file-loader',
+			options: {
+				publicPath: 'assets',
+			},
+		},
 	],
 };
 
@@ -113,15 +133,16 @@ const performance = {
 };
 
 const optimization = {
+	usedExports: true,
 	splitChunks: {
-		chunks: 'async',
+		chunks: "async",//async, all,
 		minSize: 20000,
 		// minRemainingSize: 0,
 		maxSize: 0,
 		minChunks: 1,
 		maxAsyncRequests: 30,
 		maxInitialRequests: 30,
-		automaticNameDelimiter: '~',
+		automaticNameDelimiter: "-",
 		enforceSizeThreshold: 50000,
 		cacheGroups: {
 			defaultVendors: {
@@ -145,7 +166,7 @@ const config = {
 	devServer,
 	resolve,
 	plugins,
-	// devtool,
+	devtool,
 	performance,
 	optimization
 };
