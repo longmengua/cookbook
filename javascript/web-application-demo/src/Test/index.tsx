@@ -2,17 +2,17 @@ import {React} from '../Common';
 import "./index";
 import "./index_c";
 
-function App() {
+function Test() {
 	return (
 		<>
 			<div className="Ap">
-				Sass=
+                Sass=
 			</div>
 			<div className="App">
-				Pure Css
+                Pure Css
 			</div>
 		</>
 	);
 }
 
-export default App;
+export default Test;

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "gen": "node _generation/index.ts",
     "lint": "eslint --fix src/*/*.tsx src/*.tsx --ignore-pattern '/node_modules/'",
     "build": "webpack --config config/build.js",
     "start:dev": "webpack-dev-server --config config/build.js",
@@ -34,8 +35,8 @@
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3",
-    "webpack": "^4.44.1",
-    "webpack-cli": "3.3.12",
+    "webpack": "5.0.0-rc.1",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {}

@@ -36,12 +36,15 @@ const resolve = {
 };
 
 const entry = {
-	index: "./src/index_r.tsx",
+	index: {import: "./src/index_r.tsx" , dependOn: 'shared'},
+	test: { import: "./src/Test/index.tsx", dependOn: 'shared' },
+	shared: "./src/Common/index.ts",
 };
 
 const output = {
 	path: path.resolve("dist"),
-	filename: "[hash:10].[name].js",
+	filename: "[contenthash:10].[name].js",
+	chunkFilename: '[contenthash:10].[name].js',
 };
 
 const plugins = [
@@ -49,7 +52,7 @@ const plugins = [
 		template: 'index.html'
 	}),
 	new webpack.HotModuleReplacementPlugin(),// When using hot-reload, the CleanWebpackPlugin and devServer.lazy cannot turn on.
-	// new CleanWebpackPlugin(),
+	new CleanWebpackPlugin(),
 ];
 
 const _module = {
@@ -134,6 +137,7 @@ const performance = {
 
 const optimization = {
 	usedExports: true,
+	runtimeChunk: true,
 	splitChunks: {
 		chunks: "async",//async, all,
 		minSize: 20000,
@@ -153,6 +157,19 @@ const optimization = {
 				minChunks: 2,
 				priority: -20,
 				reuseExistingChunk: true
+			},
+			commons: {
+				chunks: 'initial',
+				name: 'commons', //分割出來的檔案命名
+				minChunks: 2, //被引入2次以上的code就會被提取出來
+				priority: 1, //檔案的優先順序，數字越大表示優先級越高
+			},
+			vendor: {
+				test: /[\\/]node_modules[\\/]/, //提取引入的模組
+				chunks: 'initial',
+				name: 'vendor', //分割出來的檔案命名
+				priority: 2, //檔案的優先順序，數字越大表示優先級越高
+				enforce: true
 			}
 		}
 	}

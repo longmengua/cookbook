@@ -1,8 +1,7 @@
-import {React} from '../Common';
 import "./index";
 import "./index_c";
 
-function App() {
+function Template() {
 	return (
 		<>
 			<div className="Ap">
@@ -15,4 +14,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Template;
