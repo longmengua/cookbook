@@ -1,5 +1,5 @@
-import "./index";
-import "./index_c";
+import "./index.sass";
+import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initHeaderState, HeaderProps, HeaderState} from "./interface";
@@ -17,17 +17,19 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 		return ()=> {};
 	}, []);
 	return (
-		<ul>
-			<li>
-				<Link to="/">Home</Link>
-			</li>
-			<li>
-				<Link to="/about">About</Link>
-			</li>
-			<li>
-				<Link to="/users">Users</Link>
-			</li>
-		</ul>
+		<div className={"Header"}>
+			<ul>
+				<li>
+					<Link to="/">Home</Link>
+				</li>
+				<li>
+					<Link to="/about">About</Link>
+				</li>
+				<li>
+					<Link to="/users">Users</Link>
+				</li>
+			</ul>
+		</div>
 	);
 };
 const shouldUpdate = (prevProps: any, nextProps: any) => false;

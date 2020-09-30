@@ -1,5 +1,5 @@
-import "./index";
-import "./index_c";
+import "./index.sass";
+import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initTemplateState, TemplateProps, TemplateState} from "./interface";
@@ -17,12 +17,7 @@ const Template: React.FC<TemplateProps> = (props: TemplateProps) => {
 	}, []);
 	return (
 		<div className={"Template"}>
-			<div className="sass">
-				Sass
-			</div>
-			<div className="css">
-				Pure Css
-			</div>
+			test
 		</div>
 	);
 };
