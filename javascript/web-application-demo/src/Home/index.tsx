@@ -1,9 +1,9 @@
 import "./index";
 import "./index_c";
 
-function Template() {
+function Home() {
 	return (
-		<div className={"Template"}>
+		<div className={"Home"}>
 			<div className="sass">
 				Sass=
 			</div>
@@ -14,4 +14,4 @@ function Template() {
 	);
 }
 
-export default Template;
+export default Home;

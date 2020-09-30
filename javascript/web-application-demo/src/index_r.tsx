@@ -1,19 +1,20 @@
-import App from './App';
 import {render, React} from './Common';
 import {Route, Switch} from "react-router";
+import About from "./About";
+import Users from "./Users";
+import Home from "./Home";
 
 render(
 	<React.StrictMode>
 		<Switch>
 			<Route path="/about">
-				<App />
-				{/*<About />*/}
+				<About />
 			</Route>
 			<Route path="/users">
-				{/*<Users />*/}
+				<Users />
 			</Route>
 			<Route path="/">
-				{/*<Home />*/}
+				<Home />
 			</Route>
 		</Switch>
 	</React.StrictMode>,

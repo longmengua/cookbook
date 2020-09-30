@@ -3,14 +3,14 @@ import "./index_c";
 
 function About() {
 	return (
-		<>
-			<div className="Ap">
+		<div className={"About"}>
+			<div className="sass">
 				Sass=
 			</div>
-			<div className="App">
+			<div className="css">
 				Pure Css
 			</div>
-		</>
+		</div>
 	);
 }
 

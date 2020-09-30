@@ -4,10 +4,10 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'About';
-const templateName = 'Template';
+const moduleName = 'Home';
+const writePath = path.resolve(`src/${moduleName}`);
 
-const writePath = path.resolve(`_generation/${moduleName}`);
+const templateName = 'Template';
 const readPath = path.resolve(`_generation/${templateName}`);
 
 fs.mkdirSync(writePath, { recursive: true });
