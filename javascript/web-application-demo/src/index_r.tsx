@@ -15,8 +15,10 @@ import Header from "./Header";
 render(
 	<React.StrictMode>
 		<Router>
-			<div className={"Root"}>
+			<div className={"header"}>
 				<Header />
+			</div>
+			<div className={"section"}>
 				<Switch>
 					<Route path="/about">
 						<About />
