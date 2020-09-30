@@ -36,9 +36,7 @@ const resolve = {
 };
 
 const entry = {
-	index: {import: "./src/index_r.tsx" , dependOn: 'shared'},
-	test: { import: "./src/Test/index.tsx", dependOn: 'shared' },
-	shared: "./src/Common/index.ts",
+	index: "./src/index_r.tsx"
 };
 
 const output = {
@@ -52,7 +50,7 @@ const plugins = [
 		template: 'index.html'
 	}),
 	new webpack.HotModuleReplacementPlugin(),// When using hot-reload, the CleanWebpackPlugin and devServer.lazy cannot turn on.
-	new CleanWebpackPlugin(),
+	// new CleanWebpackPlugin(),
 ];
 
 const _module = {
@@ -140,23 +138,18 @@ const optimization = {
 	runtimeChunk: true,
 	splitChunks: {
 		chunks: "async",//async, all,
-		minSize: 20000,
+		minSize: 0,
 		// minRemainingSize: 0,
-		maxSize: 0,
+		maxSize: 20000,
 		minChunks: 1,
 		maxAsyncRequests: 30,
 		maxInitialRequests: 30,
-		automaticNameDelimiter: "-",
+		automaticNameDelimiter: ".",
 		enforceSizeThreshold: 50000,
 		cacheGroups: {
 			defaultVendors: {
 				test: /node_modules/,
 				priority: -10
-			},
-			default: {
-				minChunks: 2,
-				priority: -20,
-				reuseExistingChunk: true
 			},
 			commons: {
 				chunks: 'initial',
@@ -176,7 +169,7 @@ const optimization = {
 };
 
 const config = {
-	mode: 'production',//set up as production will auto minify the js files.
+	mode: 'development',//development, production //set up as production will auto minify the js files.
 	module: _module,
 	entry,
 	output,

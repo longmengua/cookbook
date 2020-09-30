@@ -7,7 +7,7 @@ function About() {
 		<div className={"About"}>
 			About
 			<div className="sass">
-				Sass=
+				Sass
 			</div>
 			<div className="css">
 				Pure Css

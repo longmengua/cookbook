@@ -6,8 +6,8 @@
     "gen": "node _generation/index.ts",
     "lint": "eslint --fix src/*/*.tsx src/*.tsx --ignore-pattern '/node_modules/'",
     "build": "webpack --config config/build.js",
-    "start:dev": "webpack-dev-server --config config/build.js",
-    "start:prod": "npm run lint & npm run build & npm run start:dev"
+    "serve": "webpack-dev-server --config config/build.js",
+    "start": "npm run lint & npm run build & npm run serve"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,7 @@
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
-    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.5",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.3.0",
@@ -29,7 +29,7 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",

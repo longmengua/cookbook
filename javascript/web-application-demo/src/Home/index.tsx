@@ -7,7 +7,7 @@ function Home() {
 		<div className={"Home"}>
 			Home
 			<div className="sass">
-				Sass=
+				Sass
 			</div>
 			<div className="css">
 				Pure Css

@@ -18,7 +18,7 @@ const Template: React.FC<TemplateProps> = (props: TemplateProps) => {
 	return (
 		<div className={"Template"}>
 			<div className="sass">
-				Sass=
+				Sass
 			</div>
 			<div className="css">
 				Pure Css

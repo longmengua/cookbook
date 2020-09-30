@@ -7,7 +7,7 @@ function Users() {
 		<div className={"Users"}>
 			Users
 			<div className="sass">
-				Sass=
+				Sass
 			</div>
 			<div className="css">
 				Pure Css
