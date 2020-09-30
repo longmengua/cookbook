@@ -1,8 +1,9 @@
-import {render, React} from './Common';
 import {Route, Switch} from "react-router";
 import About from "./About";
 import Users from "./Users";
 import Home from "./Home";
+import {render} from "react-dom";
+import * as React from "react";
 
 render(
 	<React.StrictMode>

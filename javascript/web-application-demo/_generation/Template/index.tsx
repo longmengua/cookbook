@@ -1,7 +1,20 @@
 import "./index";
 import "./index_c";
+import * as React from "react";
+import {useEffect, useState} from "react";
+import {initTemplateState, TemplateProps, TemplateState} from "./interface";
 
-function Template() {
+const Template: React.FC<TemplateProps> = (props: TemplateProps) => {
+	const [state, setState] = useState(initTemplateState as TemplateState);
+	useEffect(()=>{
+		/**
+		 * ... here is for componentDidMount and componentDidUpdate will trigger this
+		 * */
+		/**
+		 * the function given to return is for componentWillUnmount()
+		 * */
+		return ()=> {};
+	}, []);
 	return (
 		<div className={"Template"}>
 			<div className="sass">
@@ -12,6 +25,6 @@ function Template() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Template;
