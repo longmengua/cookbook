@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "convert": "node _convert/index.ts",
     "gen": "node _generation/index.ts",
     "lint": "eslint --fix src/*/*.tsx src/*.tsx --ignore-pattern '/node_modules/'",
     "build": "webpack --config config/build.js",
