@@ -11,36 +11,49 @@ const templateName = 'Template';
 const readPath = path.resolve(`_convert/${templateName}`);
 
 fs.mkdirSync(writePath, { recursive: true });
-fs.readdir(path.resolve(readPath), (err, files) => {
+
+getFiles(path.resolve(readPath)).then(files=>f(files));
+
+async function getFiles(path = "./") {
+	const entries = await fs.readdirSync(path, { withFileTypes: true });
+
+	// Get files within the current directory and add a path key to the file objects
+	const files = entries
+		.filter(file => !file.isDirectory())
+		.map(file => ({ ...file, path: `${path}/${file.name}` }));
+
+	// Get folders within the current directory
+	const folders = entries.filter(folder => folder.isDirectory());
+
+	for (const folder of folders)
+		files.push(...await getFiles(`${path}/${folder.name}`));
+
+	return files;
+}
+
+function f(files) {
+	let jsons = {};
 	files.forEach(fileName => {
-		if(!new RegExp("js?x","g").test(fileName))return;
-		const source = fs.readFileSync(path.resolve(readPath, fileName), 'utf8');
+		if(!new RegExp("js?x","g").test(fileName.name))return;
+		const source = fs.readFileSync(fileName.path, 'utf8');
 		const arr = source.split(/<Typography[\w ={}'.()>;]*[>]+/g);
 		const data = arr.map(e=>e.substr(0, e.indexOf("</Typography>"))).filter(value => /^[\w\s.]+$/g.test(value));
-		let json = {};
 		let result = source;
+		const path = fileName.path.replace(templateName, moduleName);
+		let json = {};
 
 		data.map((value, index)=> {
-			const key = `${fileName.split(".jsx")[0]}.Text.${index + 1}`;
-			result = result.replace(`>${value}<`, `>{i18next.t('${key}')}<`);
+			const key = `${fileName.name.split(".jsx")[0]}.Text.${index + 1}`;
+			result = result.replace(`>${value}<`, ` id="${key}" >{i18next.t('${key}')}<`);
 			json[key] = value;
+			jsons[key] = value;
 		});
 
-		fs.writeFileSync(path.resolve(writePath, fileName), `import {i18n as i18next} from "i18next";\n${result}\n//${JSON.stringify(json)}`, {flag: "w+"});
+		 if(!fs.existsSync(path)){
+		 	fs.mkdirSync(path.replace(`/${fileName.name}`, ""), { recursive: true });
+		 }
+
+		fs.writeFileSync(path, `//i18n => ${JSON.stringify(json)}\nimport {i18n as i18next} from "i18next";\n${result}`, {flag: "w+"});
 	});
-});
-// ["header.jsx"].forEach((fileName)=>{
-// 	const source = fs.readFileSync(path.resolve(readPath, fileName), 'utf8');
-// 	const arr = source.split(/<Typography[\w ={}'.()>;]*[>]+/g);
-// 	const data = arr.map(e=>e.substr(0, e.indexOf("</Typography>"))).filter(value => /^[\w\s.]+$/g.test(value));
-// 	let json = {};
-// 	let result = source;
-//
-// 	data.map((value, index)=> {
-// 		const key = `${moduleName}.Text.${index + 1}`;
-// 		result = result.replace(value, `{i18next.t("${key}")}`);
-// 		json[key] = value;
-// 	});
-//
-// 	fs.writeFileSync(path.resolve(writePath, fileName), `${result}\n//${JSON.stringify(json)}`, {flag: "w+"});
-// });
+	fs.writeFileSync(path.resolve(writePath, "en.json"), JSON.stringify(jsons), {flag: "w+"});
+}
