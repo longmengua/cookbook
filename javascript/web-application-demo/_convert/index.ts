@@ -36,8 +36,8 @@ function f(files) {
 	files.forEach(fileName => {
 		if(!new RegExp("js?x","g").test(fileName.name))return;
 		const source = fs.readFileSync(fileName.path, 'utf8');
-		const arr = source.split(/<Typography[\w ={}'.()>;]*[>]+/g);
-		const data = arr.map(e=>e.substr(0, e.indexOf("</Typography>"))).filter(value => /^[\w\s.]+$/g.test(value));
+		const arr = source.split(/<Typography[\w ={}'.()>;$`]*[>]+/g);
+		const data = arr.map(e=>e.substr(0, e.indexOf("</Typography>"))).filter(value => /^[\w\s.{'"}()]+$/g.test(value));
 		let result = source;
 		const path = fileName.path.replace(templateName, moduleName);
 		let json = {};
@@ -53,7 +53,7 @@ function f(files) {
 		 	fs.mkdirSync(path.replace(`/${fileName.name}`, ""), { recursive: true });
 		 }
 
-		fs.writeFileSync(path, `//i18n => ${JSON.stringify(json)}\nimport {i18n as i18next} from "i18next";\n${result}`, {flag: "w+"});
+		fs.writeFileSync(path, `//i18n => ${JSON.stringify(json)}\nimport i18next from "i18next";\n${result}`, {flag: "w+"});
 	});
 	fs.writeFileSync(path.resolve(writePath, "en.json"), JSON.stringify(jsons), {flag: "w+"});
 }
