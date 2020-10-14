@@ -7,7 +7,7 @@ const path = require('path');
 const moduleName = 'Dist';
 const writePath = path.resolve(`_convert/${moduleName}`);
 
-const templateName = 'Template';
+const templateName = 'components';
 const readPath = path.resolve(`_convert/${templateName}`);
 
 fs.mkdirSync(writePath, { recursive: true });
@@ -37,13 +37,24 @@ function f(files) {
 		if(!new RegExp("js?x","g").test(fileName.name))return;
 		const source = fs.readFileSync(fileName.path, 'utf8');
 		const arr = source.split(/<Typography[\w ={}'.()>;$`]*[>]+/g);
-		const data = arr.map(e=>e.substr(0, e.indexOf("</Typography>"))).filter(value => /^[\w\s.{'"}()]+$/g.test(value));
+		let data = arr.map(e=>e.substr(0, e.indexOf("</Typography>")));
+		data = data.filter(value => /^[\w\s.{'",}()]+$/g.test(value));
+		data = data.filter(value => !/asset\.+/g.test(value));
+		data = data.filter(value => !/option\.+/g.test(value));
+		data = data.filter(value => !/{ inputAdornment }+/g.test(value));
+		data = data.filter(value => !/{ option }+/g.test(value));
+		data = data.filter(value => !/{ screen }+/g.test(value));
+		data = data.filter(value => !/{ address }+/g.test(value));
+		data = data.filter(value => !/{ e.blockNumber }+/g.test(value));
+		data = data.filter(value => !/{ parseFloat(asset.tokenBalance).toFixed(2) }+/g.test(value));
+		data = data.filter(value => !/{ this.lender(asset.current) }+/g.test(value));
 		let result = source;
 		const path = fileName.path.replace(templateName, moduleName);
 		let json = {};
 
 		data.map((value, index)=> {
-			const key = `${fileName.name.split(".jsx")[0]}.Text.${index + 1}`;
+			const names = fileName.path.split("components/")[1].split(/\//g);
+			const key = `${names[0]}.${names[1].replace(".jsx", "")}.Text.${index + 1}`;
 			result = result.replace(`>${value}<`, ` id="${key}" >{i18next.t('${key}')}<`);
 			json[key] = value;
 			jsons[key] = value;
