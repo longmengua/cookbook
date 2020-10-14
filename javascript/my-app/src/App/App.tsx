@@ -1,26 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from '../logo.svg';
 import './App.css';
 
-function Index() {
+const App:React.FC = (prop: any) => {
+  let test = 234;
+  const [state, setState] = useState(Object(""));
+
+  const onClick = () => {
+      console.log("==");
+    test = 432;
+    setState(Object(""));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/Index.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img src={logo} className="App-logo" alt="logo" />
+      <div>value: {test}{state}</div>
+      <div onClick={onClick} style={{border: "1px solid black", cursor: "pointer"}}>setState</div>
     </div>
   );
-}
+};
 
 export default App;

@@ -2,4 +2,4 @@ type ReactFCProps = {
 
 }
 
-export {ReactFCProps}
+export default ReactFCProps;
