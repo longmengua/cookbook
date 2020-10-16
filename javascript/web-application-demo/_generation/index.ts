@@ -4,7 +4,7 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'Header';
+const moduleName = 'Dashboard';
 const writePath = path.resolve(`src/${moduleName}`);
 
 const templateName = 'Template';

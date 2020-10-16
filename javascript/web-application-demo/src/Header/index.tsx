@@ -23,10 +23,13 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 					<Link to="/">Home</Link>
 				</li>
 				<li>
-					<Link to="/about">About</Link>
+					<Link to="/About">About</Link>
 				</li>
 				<li>
-					<Link to="/users">Users</Link>
+					<Link to="/Users">Users</Link>
+				</li>
+				<li>
+					<Link to="/Dashboard">Dashboard</Link>
 				</li>
 			</ul>
 		</div>

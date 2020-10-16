@@ -1,0 +1,21 @@
+.InputContainer
+  input
+    padding: 5px 10px
+    font-size: 20px
+    border: none
+    border-bottom: 1px solid lightblue
+    outline: none
+
+  label
+    font-size: 20px
+    color: gray
+    position: absolute
+    left: 0
+    top: 0
+    transform: translate(5px, 5px)
+    pointer-events: none
+    transition: 0.5s
+
+  input:focus ~ label
+    transform: translate(20px, -10px)
+    font-size: 14px
