@@ -3,7 +3,7 @@ import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initDashboardState, DashboardProps, DashboardState} from "./interface";
-import InputContainer from "../Util";
+import InputContainer from "../InputContainer";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	const [state, setState] = useState(initDashboardState as DashboardState);

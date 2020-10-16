@@ -19,17 +19,17 @@ render(
 			<Header />
 			<div className={"section"}>
 				<Switch>
-					<Route path="/">
-						<Home />
+					<Route path="/dashboard">
+						<Dashboard />
 					</Route>
-					<Route path="/About">
+					<Route path="/about">
 						<About />
 					</Route>
-					<Route path="/Users">
+					<Route path="/users">
 						<Users />
 					</Route>
-					<Route path="/Dashboard">
-						<Dashboard />
+					<Route path="/">
+						<Home />
 					</Route>
 				</Switch>
 			</div>
