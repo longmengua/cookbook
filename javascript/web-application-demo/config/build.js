@@ -1,4 +1,3 @@
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
@@ -7,9 +6,9 @@ const root = path.resolve("");
 
 const devServer = {
 	port: 1234,
-	index: path.resolve("dist/index.html"),
-	contentBase: path.resolve("dist"),
-	contentBasePublicPath: '/demo',
+	// index: path.resolve("index.html"),
+	// contentBase: path.resolve("dist"),
+	// contentBasePublicPath: '/demo',
 	compress: true,
 	hot: true,
 	// lazy: true,
@@ -125,7 +124,7 @@ const _module = {
 };
 
 //https://juejin.im/post/6844903450644316174
-const devtool = "cheap-module-source-map";
+const devtool = "source-map";
 
 const performance = {
 	hints: "warning",

@@ -8,7 +8,6 @@ import {
 	Link
 } from "react-router-dom";
 import About from "./About";
-import Users from "./Users";
 import Home from "./Home";
 import Header from "./Header";
 import Dashboard from "./Dashboard";
@@ -24,9 +23,6 @@ render(
 					</Route>
 					<Route path="/about">
 						<About />
-					</Route>
-					<Route path="/users">
-						<Users />
 					</Route>
 					<Route path="/">
 						<Home />

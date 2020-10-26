@@ -4,6 +4,7 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 import {initDashboardState, DashboardProps, DashboardState} from "./interface";
 import InputContainer from "../InputContainer";
+import Area from "../Area";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	const [state, setState] = useState(initDashboardState as DashboardState);
@@ -18,7 +19,10 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	}, []);
 	return (
 		<div className={"Dashboard"}>
-			<InputContainer labelName={"Name"}/>
+			<Area title={"Input"}>
+				<InputContainer labelName={"Name"}/>
+				<InputContainer labelName={"Name"}/>
+			</Area>
 		</div>
 	);
 };
