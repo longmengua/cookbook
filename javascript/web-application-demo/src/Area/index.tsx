@@ -31,8 +31,8 @@ const Area: React.FC<AreaProps> = (props: AreaProps) => {
 				{node}
 			</div>);
 		} else if (React.isValidElement(children)) {
-			toReturn.push(<div className={"list-area"}>
-				<div>{`(style 1)`}</div>
+			toReturn.push(<div className={"list-area"} key={`template-0`}>
+				<div className={"list-label"}>{`(style 1)`}</div>
 				{_children}
 			</div>);
 		}
