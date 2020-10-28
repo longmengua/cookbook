@@ -6,6 +6,7 @@ import {initDashboardState, DashboardProps, DashboardState} from "./interface";
 import InputContainer from "../InputContainer";
 import Area from "../Area";
 import InputContainer1 from "../InputContainer1";
+import SquareRotation from "../SquareRotation";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	const [state, setState] = useState(initDashboardState as DashboardState);
@@ -24,7 +25,8 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 				<InputContainer labelName={"Name"}/>
 				<InputContainer1 labelName={"Name"}/>
 			</Area>
-			<Area title={"Input"}>
+			<Area title={"Rotation"}>
+				<SquareRotation />
 			</Area>
 		</div>
 	);

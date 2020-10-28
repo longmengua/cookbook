@@ -4,7 +4,7 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'InputContainer1';
+const moduleName = 'SquareRotation';
 const writePath = path.resolve(`src/${moduleName}`);
 
 const templateName = 'Template';
