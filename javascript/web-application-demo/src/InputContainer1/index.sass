@@ -1,0 +1,33 @@
+.InputContainer1
+  position: relative
+
+  label
+    font-size: 20px
+    color: gray
+    position: absolute
+    left: 0
+    top: 0
+    transform: translate(10px, 3px)
+    pointer-events: none
+    transition: 0.5s
+
+  input
+    padding: 5px 10px
+    font-size: 20px
+    outline: none
+    border-radius: 5px
+    border: none
+    //透明
+    background-color: rgb(0,0,0, 0)
+    //立體
+    box-shadow: 1px 1px 3px rgb(0,100,255, 0.5)
+
+    &:focus ~ label
+      transform: translate(20px, -10px)
+      font-size: 14px
+      //background-color: #ffffff
+
+    //如果要讓這行執行，必定要設定placeholder為一個空白
+    &:not(:placeholder-shown) ~ label
+      transform: translate(20px, -10px)
+      font-size: 14px

@@ -6,9 +6,9 @@ export type AreaProps = {
 };
 
 export type AreaState = {
-
+    isExpand: boolean
 };
 
 export const initAreaState: AreaState = {
-
+	isExpand: false
 };

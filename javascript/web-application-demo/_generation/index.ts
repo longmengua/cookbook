@@ -4,8 +4,8 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'Arrow';
-const writePath = path.resolve(`src/Util/${moduleName}`);
+const moduleName = 'InputContainer1';
+const writePath = path.resolve(`src/${moduleName}`);
 
 const templateName = 'Template';
 const readPath = path.resolve(`_generation/${templateName}`);
