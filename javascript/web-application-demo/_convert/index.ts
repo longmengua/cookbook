@@ -109,7 +109,7 @@ function f(files) {
 			let key;
 			try {
 				names = fileName.path.split(templateName + "/")[1].split(/\//g);
-				key = `${names[0]}.${names[1].replace(".jsx", "")}.Text.${index + 1}`;
+				key = `${names[0]}.${names[1].replace(".jsx", "")}-Text-${index + 1}`;
 				result = result.replace(`>${value}<`, ` id="${key}" >{i18next.t('${key}')}<`);
 				json[key] = value;
 				jsons[key] = value;

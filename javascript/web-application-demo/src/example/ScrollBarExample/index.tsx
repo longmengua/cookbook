@@ -3,7 +3,7 @@ import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initScrollBarExampleState, ScrollBarExampleProps, ScrollBarExampleState} from "./interface";
-import ScrollBar from "../ScrollBar";
+import ScrollBar from "../../util/ScrollBar";
 
 const ScrollBarExample: React.FC<ScrollBarExampleProps> = (props: ScrollBarExampleProps) => {
 	const [

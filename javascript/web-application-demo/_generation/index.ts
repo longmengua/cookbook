@@ -4,8 +4,8 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'ScrollBarExample';
-const writePath = path.resolve(`src/${moduleName}`);
+const moduleName = '';
+const writePath = path.resolve(`src/util/${moduleName}`);
 
 const templateName = 'Template';
 const readPath = path.resolve(`_generation/${templateName}`);

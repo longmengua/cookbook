@@ -3,13 +3,15 @@ import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initDashboardState, DashboardProps, DashboardState} from "./interface";
-import InputContainer from "../InputContainer";
-import Area from "../Area";
-import InputContainer1 from "../InputContainer1";
-import SquareRotation from "../SquareRotation";
-import Carousel from "../Carousel";
-import ScrollBar from "../ScrollBar";
-import ScrollBarExample from "../ScrollBarExample";
+import InputContainer from "../util/InputContainer";
+import Area from "../util/Area";
+import InputContainer1 from "../util/InputContainer1";
+import SquareRotation from "../util/SquareRotation";
+import Carousel from "../util/Carousel";
+import ScrollBar from "../util/ScrollBar";
+import ScrollBarExample from "../example/ScrollBarExample";
+import HeaderFolderExample from "../example/HeaderFolderExample";
+import StarRatingAnimation from "../util/StarRatingAnimation";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	const [
@@ -40,6 +42,12 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 			</Area>
 			<Area title={"Carousel Ad."}>
 				<Carousel />
+			</Area>
+			<Area title={"Header Collapse."} isExpand={true}>
+				<HeaderFolderExample />
+			</Area>
+			<Area title={"Star Rating."} isExpand={false}>
+				<StarRatingAnimation />
 			</Area>
 		</div>
 	);
