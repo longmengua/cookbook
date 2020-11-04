@@ -6,13 +6,17 @@ import {initMaintenanceState, MaintenanceProps, MaintenanceState} from "./interf
 import {render} from "react-dom";
 
 const Maintenance: React.FC<MaintenanceProps> = (props: MaintenanceProps) => {
-	const [state, setState] = useState(initMaintenanceState as MaintenanceState);
+	const [
+		state,
+		setState 
+	] = useState(initMaintenanceState as MaintenanceState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);

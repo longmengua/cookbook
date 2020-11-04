@@ -5,13 +5,17 @@ import {useEffect, useState} from "react";
 import {initInputContainer1State, InputContainer1Props, InputContainer1State} from "./interface";
 
 const InputContainer1: React.FC<InputContainer1Props> = (props: InputContainer1Props) => {
-	const [state, setState] = useState(initInputContainer1State as InputContainer1State);
+	const [
+		state,
+		setState 
+	] = useState(initInputContainer1State as InputContainer1State);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);

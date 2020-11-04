@@ -8,10 +8,12 @@ export type ScrollBarState = {
     parentHeight: number;
     childHeight: number;
     scrollY: number;
+    scrollerHeight: number;
 };
 
 export const initScrollBarState: ScrollBarState = {
-    parentHeight: 0,
-    childHeight: 0,
-	scrollY: 0
+	parentHeight  : 0,
+	childHeight   : 0,
+	scrollY       : 0,
+	scrollerHeight: 0
 };

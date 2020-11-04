@@ -7,3 +7,6 @@
 /puppeteer-jest/node_modules/
 /javascript/web-application-demo/node_modules/
 /javascript/web-application-demo/dist/
+/javascript/nodeServer/build/
+/javascript/nodeServer/.cache/
+/javascript/nodeServer/node_modules/

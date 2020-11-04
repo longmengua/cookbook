@@ -6,7 +6,7 @@
     "array-bracket-spacing": ["error", "always"],
     "array-element-newline": ["error", "always"],
     "block-spacing": ["error", "always"],
-    "capitalized-comments": ["error", "always"],
+    "capitalized-comments": ["error", "never"],
     "implicit-arrow-linebreak": ["error", "below"],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", { "align": "colon" }],
@@ -19,5 +19,5 @@
     "linebreak-style": ["error", "unix"],
     "semi-spacing": ["error", {"before": false, "after": true}]
   },
-  "ignorePatterns": ["/node_modules/", "/static/", "/dist/"]
+  "ignorePatterns": ["/node_modules/", "/static/", "/build/"]
 }

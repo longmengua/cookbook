@@ -6,13 +6,17 @@ import {initScrollBarExampleState, ScrollBarExampleProps, ScrollBarExampleState}
 import ScrollBar from "../ScrollBar";
 
 const ScrollBarExample: React.FC<ScrollBarExampleProps> = (props: ScrollBarExampleProps) => {
-	const [state, setState] = useState(initScrollBarExampleState as ScrollBarExampleState);
+	const [
+		state,
+		setState 
+	] = useState(initScrollBarExampleState as ScrollBarExampleState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);

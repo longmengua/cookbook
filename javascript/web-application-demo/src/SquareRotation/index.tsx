@@ -5,13 +5,17 @@ import {useEffect, useState} from "react";
 import {initSquareRotationState, SquareRotationProps, SquareRotationState} from "./interface";
 
 const SquareRotation: React.FC<SquareRotationProps> = (props: SquareRotationProps) => {
-	const [state, setState] = useState(initSquareRotationState as SquareRotationState);
+	const [
+		state,
+		setState 
+	] = useState(initSquareRotationState as SquareRotationState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);

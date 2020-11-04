@@ -4,13 +4,17 @@ import {useEffect, useState} from "react";
 import {initUtilState, UtilProps, UtilState} from "./interface";
 
 const InputContainer: React.FC<UtilProps> = (props: UtilProps) => {
-	const [state, setState] = useState(initUtilState as UtilState);
+	const [
+		state,
+		setState 
+	] = useState(initUtilState as UtilState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);

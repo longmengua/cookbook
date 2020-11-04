@@ -9,14 +9,18 @@ const Area: React.FC<AreaProps> = (props: AreaProps) => {
 	const {title, children} = useMemo(()=>{
 		console.log("useMemo");
 		return props;
-	}, [props]);
-	const [state, setState] = useState(initAreaState as AreaState);
+	}, [ props ]);
+	const [
+		state,
+		setState 
+	] = useState(initAreaState as AreaState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);
@@ -25,11 +29,12 @@ const Area: React.FC<AreaProps> = (props: AreaProps) => {
 		console.log("genList");
 		const _children = children;
 		let toReturn: JSX.Element[] = [];
-		if(Array.isArray(_children)){
-			toReturn = _children.map((node, index)=> <div className={"list-area"} key={`template-${index}`}>
-				<div className={"list-label"}>{`(style ${index + 1})`}</div>
-				{node}
-			</div>);
+		if (Array.isArray(_children)){
+			toReturn = _children.map((node, index)=> 
+				<div className={"list-area"} key={`template-${index}`}>
+					<div className={"list-label"}>{`(style ${index + 1})`}</div>
+					{node}
+				</div>);
 		} else if (React.isValidElement(children)) {
 			toReturn.push(<div className={"list-area"} key={`template-0`}>
 				<div className={"list-label"}>{`(style 1)`}</div>
@@ -46,7 +51,8 @@ const Area: React.FC<AreaProps> = (props: AreaProps) => {
 
 	return (
 		<div className={"Area"}>
-			<div className={"category"} onClick={()=> triggerExpand()}>
+			<div className={"category"} onClick={()=> 
+				triggerExpand()}>
 				<Arrow rotateDeg={state.isExpand ? 90 : 0}/>
 				<label>{title}</label>
 			</div>

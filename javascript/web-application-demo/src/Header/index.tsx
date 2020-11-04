@@ -6,13 +6,17 @@ import {initHeaderState, HeaderProps, HeaderState} from "./interface";
 import {Link} from "react-router-dom";
 
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
-	const [state, setState] = useState(initHeaderState as HeaderState);
+	const [
+		state,
+		setState 
+	] = useState(initHeaderState as HeaderState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);
@@ -32,6 +36,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 		</div>
 	);
 };
-const shouldUpdate = (prevProps: any, nextProps: any) => false;
+const shouldUpdate = (prevProps: any, nextProps: any) => 
+	false;
 export default React.memo(Header, shouldUpdate);
-// export default React.memo(Header);
+// Export default React.memo(Header);

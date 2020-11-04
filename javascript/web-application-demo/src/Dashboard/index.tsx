@@ -12,13 +12,17 @@ import ScrollBar from "../ScrollBar";
 import ScrollBarExample from "../ScrollBarExample";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
-	const [state, setState] = useState(initDashboardState as DashboardState);
+	const [
+		state,
+		setState 
+	] = useState(initDashboardState as DashboardState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);
