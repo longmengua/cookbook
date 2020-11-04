@@ -2,31 +2,11 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-const root = path.resolve("");
-
 const devServer = {
 	port    : 1234,
-	// Index: path.resolve("index.html"),
-	// ContentBase: path.resolve("dist"),
-	// ContentBasePublicPath: '/demo',
 	compress: true,
 	hot     : true,
-	// Lazy: true,
-	// UseLocalIp: true,
-	// When devServer.lazy is enabled, the dev-server will only compile the bundle when it gets requested.
-	// This means that webpack will not watch any file changes. We call this lazy mode.
 	https   : true,
-	headers : {
-		"test-header": "demo-header"
-	},
-	historyApiFallback: {
-		// Index: 'dist/index.html',
-		// Rewrites: [
-		// 	// { from: /^\/$/, to: '/demo' },
-		// 	{ from: /^\/subpage/, to: '/dist/index.html' },
-		// 	{ from: /./, to: '/404.html' }
-		// ]
-	}
 };
 
 const resolve = {
@@ -42,7 +22,7 @@ const resolve = {
 };
 
 const entry = {
-	index: "./src/index_r.tsx"
+	index: "./src/main.tsx"
 };
 
 const output = {
@@ -55,8 +35,8 @@ const plugins = [
 	new HtmlWebpackPlugin({
 		template: 'index.html'
 	}),
-	(new webpack.HotModuleReplacementPlugin),// When using hot-reload, the CleanWebpackPlugin and devServer.lazy cannot turn on.
-	// New CleanWebpackPlugin(),
+	(new webpack.HotModuleReplacementPlugin),// when using hot-reload, the CleanWebpackPlugin and devServer.lazy cannot turn on.
+	// new CleanWebpackPlugin(),
 ];
 
 const _module = {
@@ -66,13 +46,13 @@ const _module = {
    * @Note babel parsing jsx
    * */
 		// {
-		// 	Test: /\.jsx?$/,
-		// 	Exclude: /node_modules/,
-		// 	Include: [
-		// 		Path.resolve("src")
+		// 	test: /\.jsx?$/,
+		// 	exclude: /node_modules/,
+		// 	include: [
+		// 		path.resolve(root,"src")
 		// 	],
-		// 	Use: [{
-		// 		Loader: 'babel-loader',
+		// 	use: [{
+		// 		loader: 'babel-loader',
 		// 		/**
 		// * @Note this configuration is react
 		// * */
@@ -82,11 +62,11 @@ const _module = {
 		// 	}]
 		// },
 		// {
-		// 	Test: /\.vue$/,
-		// 	Loader: 'vue-loader',
-		// 	Exclude: /node_modules/,
-		// 	Include: [
-		// 		Path.resolve("src/Vue")
+		// 	test: /\.vue$/,
+		// 	loader: 'vue-loader',
+		// 	exclude: /node_modules/,
+		// 	include: [
+		// 		path.resolve(root,"src/Vue")
 		// 	],
 		// },
 		/**
@@ -141,9 +121,9 @@ const optimization = {
 	usedExports : true,
 	runtimeChunk: true,
 	splitChunks : {
-		chunks                : "async",//Async, all,
+		chunks                : "async",//async, all,
 		minSize               : 0,
-		// MinRemainingSize: 0,
+		// minRemainingSize: 0,
 		maxSize               : 20000,
 		minChunks             : 1,
 		maxAsyncRequests      : 30,
@@ -173,7 +153,7 @@ const optimization = {
 };
 
 const config = {
-	mode  : 'development',//Development, production //set up as production will auto minify the js files.
+	mode  : 'development',//development, production //set up as production will auto minify the js files.
 	module: _module,
 	entry,
 	output,

@@ -5,13 +5,17 @@ import {useEffect, useState} from "react";
 import {initStarRatingAnimationState, StarRatingAnimationProps, StarRatingAnimationState} from "./interface";
 
 const StarRatingAnimation: React.FC<StarRatingAnimationProps> = (props: StarRatingAnimationProps) => {
-	const [state, setState] = useState(initStarRatingAnimationState as StarRatingAnimationState);
+	const [
+		state,
+		setState 
+	] = useState(initStarRatingAnimationState as StarRatingAnimationState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
 	}, []);

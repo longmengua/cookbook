@@ -6,17 +6,22 @@ import {initHeaderFolderState, HeaderFolderProps, HeaderFolderState} from "./int
 import Arrow from "../Arrow";
 
 const HeaderFolder: React.FC<HeaderFolderProps> = (props: HeaderFolderProps) => {
-	const [state, setState] = useState(initHeaderFolderState as HeaderFolderState);
+	const [
+		state,
+		setState 
+	] = useState(initHeaderFolderState as HeaderFolderState);
 	useEffect(()=>{
+
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		setState({...state, isExpanded: !!props.isExpanded});
+
 		/**
-		 * the function given to return is for componentWillUnmount()
+		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
-	}, [props.isExpanded]);
+	}, [ props.isExpanded ]);
 	return (
 		<div className={`HeaderFolder ${state.isExpanded ? 'isExpanded' : ''}`}>
 			{/*<input type="checkbox" name="rating" id="rating-5" />*/}

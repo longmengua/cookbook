@@ -22,9 +22,10 @@ const emitter = Store.emitter;
 const dispatcher = Store.dispatcher;
 const store = Store.store;
 
-const styles = theme => ({
+const styles = theme => 
+	({
 
-});
+	});
 
 class Stake extends Component {
 
@@ -34,11 +35,11 @@ class Stake extends Component {
 		const account = store.getStore('account');
 
 		this.state = {
-			assets: store.getStore('vaultAssets'),
+			assets : store.getStore('vaultAssets'),
 			loading: true
 		};
 
-		if(account && account.address) {
+		if (account && account.address) {
 			dispatcher.dispatch({ type: GET_VAULT_BALANCES_FULL, content: { } });
 		}
 	}

@@ -20,22 +20,24 @@ const Area: React.FC<AreaProps> = (props: AreaProps) => {
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
 		setState({...state, isExpand: !!isExpand});
+
 		/**
 		 * The function given to return is for componentWillUnmount()
 		 * */
 		return ()=> {};
-	}, [isExpand]);
+	}, [ isExpand ]);
 
 	const genList = useMemo(()=>{
 		console.log("genList");
 		const _children = children;
 		let toReturn: JSX.Element[] = [];
 
-		if(Array.isArray(_children)){
-			toReturn = _children.map((node, index)=> <div className={"list-area"} key={`template-${index}`}>
-				<div className={"list-label"}>{`Style ${index + 1}`}</div>
-				{node}
-			</div>);
+		if (Array.isArray(_children)){
+			toReturn = _children.map((node, index)=> 
+				<div className={"list-area"} key={`template-${index}`}>
+					<div className={"list-label"}>{`Style ${index + 1}`}</div>
+					{node}
+				</div>);
 
 		} else if (React.isValidElement(children)) {
 			toReturn.push(<div className={"list-area"} key={`template-0`}>

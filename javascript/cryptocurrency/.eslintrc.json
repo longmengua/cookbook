@@ -1,0 +1,23 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "indent": ["error", "tab"],
+    "array-bracket-newline": ["error", { "multiline": true }],
+    "array-bracket-spacing": ["error", "always"],
+    "array-element-newline": ["error", "always"],
+    "block-spacing": ["error", "always"],
+    "capitalized-comments": ["error", "never"],
+    "implicit-arrow-linebreak": ["error", "below"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "key-spacing": ["error", { "align": "colon" }],
+    "keyword-spacing": ["error", { "before": true, "after": true }],
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 2, "maxBOF": 2 }],
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 1 }],
+    "new-parens": ["error", "never"],
+    "lines-between-class-members": ["error", "always"],
+    "lines-around-comment": ["error", { "beforeBlockComment": true }],
+    "linebreak-style": ["error", "unix"],
+    "semi-spacing": ["error", {"before": false, "after": true}]
+  },
+  "ignorePatterns": ["/node_modules/", "/static/", "/build/"]
+}
