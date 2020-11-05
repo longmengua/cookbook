@@ -3,15 +3,15 @@ import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initDashboardState, DashboardProps, DashboardState} from "./interface";
-import InputContainer from "../util/InputContainer";
-import Area from "../util/Area";
-import InputContainer1 from "../util/InputContainer1";
-import SquareRotation from "../util/SquareRotation";
-import Carousel from "../util/Carousel";
-import ScrollBar from "../util/ScrollBar";
+import InputContainer from "../widget/InputContainer";
+import Area from "../widget/Area";
+import InputContainer1 from "../widget/InputContainer1";
+import SquareRotation from "../widget/SquareRotation";
+import Carousel from "../widget/Carousel";
+import ScrollBar from "../widget/ScrollBar";
 import ScrollBarExample from "../example/ScrollBarExample";
 import HeaderFolderExample from "../example/HeaderFolderExample";
-import StarRatingAnimation from "../util/StarRatingAnimation";
+import StarRatingAnimation from "../widget/StarRatingAnimation";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	const [

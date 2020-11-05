@@ -3,7 +3,7 @@ import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initHeaderFolderExampleState, HeaderFolderExampleProps, HeaderFolderExampleState} from "./interface";
-import HeaderFolder from "../../util/HeaderFolder";
+import HeaderFolder from "../../widget/HeaderFolder";
 
 // Import icon from "../../../asset/dashboard/ic_sleep_dashboard@2x.png";
 /**
