@@ -7,7 +7,6 @@
     "array-element-newline": ["error", "always"],
     "block-spacing": ["error", "always"],
     "capitalized-comments": ["error", "always"],
-    "implicit-arrow-linebreak": ["error", "below"],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", { "align": "colon" }],
     "keyword-spacing": ["error", { "before": true, "after": true }],
