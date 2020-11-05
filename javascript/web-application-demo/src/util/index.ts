@@ -1,8 +1,8 @@
-const formatMoney = (money) => 
+const formatMoney = (money: string | number) =>
 	JSON.stringify(money)
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
-const formatMarketCap = (num, digits) => {
+const formatMarketCap = (num: number, digits: number) => {
 	const si = [
 		{ value: 1, symbol: "" },
 		{ value: 1E3, symbol: "k" },
