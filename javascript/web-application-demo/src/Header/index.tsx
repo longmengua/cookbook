@@ -24,13 +24,13 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 		<div className={"Header"}>
 			<ul>
 				<li>
-					<Link to="/">Home</Link>
+					<a href="#/">Home</a>
 				</li>
 				<li>
-					<Link to="/about">About</Link>
+					<a href="#/about">About</a>
 				</li>
 				<li>
-					<Link to="/dashboard">Dashboard</Link>
+					<a href="#/dashboard">Dashboard</a>
 				</li>
 			</ul>
 		</div>

@@ -20,6 +20,7 @@ const Path: React.FC<PathProps> = (props: PathProps) => {
 		 * */
 		return ()=> {};
 	}, []);
+
 	return (
 		<Route path={props.path}>{props.component}</Route>
 	);

@@ -7,6 +7,7 @@ export interface WithRouterComponents {
 
 export type WithRouterProps = {
     children?: React.ReactNode,
+    routers?: Array<{path: string, component: React.ReactNode}>
 };
 
 export type WithRouterState = {

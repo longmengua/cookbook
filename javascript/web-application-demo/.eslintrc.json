@@ -6,7 +6,6 @@
     "array-bracket-spacing": ["error", "always"],
     "array-element-newline": ["error", "always"],
     "block-spacing": ["error", "always"],
-    "capitalized-comments": ["error", "always"],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", { "align": "colon" }],
     "keyword-spacing": ["error", { "before": true, "after": true }],

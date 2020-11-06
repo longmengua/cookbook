@@ -1,19 +1,19 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {
-	initWithProviderState,
-	WithProviderProps,
-	WithProviderState
+	initwithProviderState,
+	withProviderProps,
+	withProviderState
 } from "./interface";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./reducer";
 
-const WithProvider: React.FC<WithProviderProps> = (props: WithProviderProps) => {
+const withProvider: React.FC<withProviderProps> = (props: withProviderProps) => {
 	const [
 		state,
 		setState 
-	] = useState(initWithProviderState as WithProviderState);
+	] = useState(initwithProviderState as withProviderState);
 	useEffect(()=>{
 
 		/**
@@ -25,7 +25,7 @@ const WithProvider: React.FC<WithProviderProps> = (props: WithProviderProps) => 
 		return ()=> {};
 	}, []);
 	return (
-		<div className={"WithProvider"}>
+		<div className={"withProvider"}>
 			<Provider store={createStore(reducer)}>
 				{props.children}
 			</Provider>
@@ -33,4 +33,4 @@ const WithProvider: React.FC<WithProviderProps> = (props: WithProviderProps) => 
 	);
 };
 
-export default WithProvider;
+export default withProvider;
