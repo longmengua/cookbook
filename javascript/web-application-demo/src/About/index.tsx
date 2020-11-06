@@ -1,19 +1,30 @@
-import "./index";
-import "./index_c";
-import React from "react";
+import "./index.sass";
+import "./index_c.css";
+import * as React from "react";
+import {useEffect, useState} from "react";
+import {initAboutState, AboutProps, AboutState} from "./interface";
+import withRedux from "../withRedux";
 
-function About() {
+const About: React.FC<AboutProps> = (props: AboutProps) => {
+	const [
+		state,
+		setState 
+	] = useState(initAboutState as AboutState);
+	useEffect(()=>{
+
+		/**
+		 * ... here is for componentDidMount and componentDidUpdate will trigger this
+		 * */
+		/**
+		 * The function given to return is for componentWillUnmount()
+		 * */
+		return ()=> {};
+	}, []);
 	return (
 		<div className={"About"}>
-			About
-			<div className="sass">
-				Sass
-			</div>
-			<div className="css">
-				Pure Css
-			</div>
+			test
 		</div>
 	);
-}
+};
 
-export default About;
+export default withRedux(About);

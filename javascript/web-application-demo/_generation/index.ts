@@ -4,8 +4,8 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'Path';
-const writePath = path.resolve(`src/WithRouter/${moduleName}`);
+const moduleName = 'About';
+const writePath = path.resolve(`src/${moduleName}`);
 
 const templateName = 'Template';
 const readPath = path.resolve(`_generation/${templateName}`);

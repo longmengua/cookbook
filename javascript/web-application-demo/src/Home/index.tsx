@@ -1,19 +1,29 @@
-import "./index";
-import "./index_c";
-import React from "react";
+import "./index.sass";
+import "./index_c.css";
+import * as React from "react";
+import {useEffect, useState} from "react";
+import {initHomeState, HomeProps, HomeState} from "./interface";
 
-function Home() {
+const Home: React.FC<HomeProps> = (props: HomeProps) => {
+	const [
+		state,
+		setState 
+	] = useState(initHomeState as HomeState);
+	useEffect(()=>{
+
+		/**
+		 * ... here is for componentDidMount and componentDidUpdate will trigger this
+		 * */
+		/**
+		 * The function given to return is for componentWillUnmount()
+		 * */
+		return ()=> {};
+	}, []);
 	return (
 		<div className={"Home"}>
-			Home
-			<div className="sass">
-				Sass
-			</div>
-			<div className="css">
-				Pure Css
-			</div>
+			test
 		</div>
 	);
-}
+};
 
 export default Home;
