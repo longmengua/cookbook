@@ -38,54 +38,18 @@ async function getFiles(path = "./") {
 
 function customFilter(_data) {
 	let data = _data;
-	data = data.filter(value => 
-		/^[\w\s.{'",}()]+$/g.test(value));
-	// Data = data.filter(value => !/asset\./g.test(value));
-	// Data = data.filter(value => !/option\./g.test(value));
-	// Data = data.filter(value => !/{ inputAdornment }/g.test(value));
-	// Data = data.filter(value => !/{ option }/g.test(value));
-	data = data.filter(value => 
-		!/{ screen }/g.test(value));
-	// Data = data.filter(value => !/{ address }/g.test(value));
-	// Data = data.filter(value => !/{ e.blockNumber }/g.test(value));
-	// Data = data.filter(value => !/{ parseFloat(asset.tokenBalance).toFixed(2) }/g.test(value));
-	// Data = data.filter(value => !/{ this.lender(asset.current) }/g.test(value));
-	// Data = data.filter(value => !/{ rewardPool.name }/g.test(value));
-	// Data = data.filter(value => !/{ pool.name }/g.test(value));
-	data = data.filter(value => 
-		!/{address}/g.test(value));
-	data = data.filter(value => 
-		!/this.votingMessage\(proposal\)/g.test(value));
-	data = data.filter(value => 
-		!/this.formatVotes\(proposal.myVotes\)/g.test(value));
-	data = data.filter(value => 
-		!/{ asset.symbol }/g.test(value));
-	data = data.filter(value => 
-		!/{ pool.name }/g.test(value));
-	data = data.filter(value => 
-		!/{ address }/g.test(value));
-	data = data.filter(value => 
-		!/asset.claimableBalance/g.test(value));
-	data = data.filter(value => 
-		!/rewardPool.name/g.test(value));
-	data = data.filter(value => 
-		!/contract.name/g.test(value));
-	data = data.filter(value => 
-		!/option.symbol/g.test(value));
-	data = data.filter(value => 
-		!/quoteContract/g.test(value));
-	data = data.filter(value => 
-		!/quote.amount/g.test(value));
-	data = data.filter(value => 
-		!/option.symbol/g.test(value));
-	data = data.filter(value => 
-		!/contract.name/g.test(value));
-	data = data.filter(value => 
-		!/contract.coverAmount/g.test(value));
-	// Data = data.filter(value => !//g.test(value));
-	// Data = data.filter(value => !//g.test(value));
-	// Data = data.filter(value => !//g.test(value));
-	// Data = data.filter(value => !//g.test(value));
+
+	//vault
+	data = data.filter(value => value != "");
+	data = data.filter(value => !/asset\./g.test(value));
+	data = data.filter(value => !/25%/g.test(value));
+	data = data.filter(value => !/50%/g.test(value));
+	data = data.filter(value => !/75%/g.test(value));
+	data = data.filter(value => !/100%/g.test(value));
+	data = data.filter(value => !/option\./g.test(value));
+	data = data.filter(value => !/this\._getAPY/g.test(value));
+
+	// data = _data.filter(value => !//g.test(value));
 
 	return data;
 }
@@ -97,11 +61,19 @@ function f(files) {
 			.test(fileName.name)) return;
 		const path = fileName.path.replace(templateName, moduleName);
 		const source = fs.readFileSync(fileName.path, 'utf8');
-		const arr = source.split(/<Typography[\w ={}'.()>;$`]*[>]+/g);
+
+		const arr = source.match(/<Typography(.)*Typography>/g);
 		let result = source;
 		let json = {};
-		let data = arr.map(e=>
-			e.substr(0, e.indexOf("</Typography>")));
+		let data = arr.map((e,i)=>{
+			const from = e.indexOf(">")+1;
+			const end = e.indexOf("<\/Typography>");
+			const toReturn = e.substring( from, end);
+			if (e.indexOf("classes.fees") > -1){
+				console.log("debugger");
+			}
+			return  toReturn;
+		});
 
 		data = customFilter(data);
 		data.map((value, index)=> {
@@ -109,7 +81,7 @@ function f(files) {
 			let key;
 			try {
 				names = fileName.path.split(templateName + "/")[1].split(/\//g);
-				key = `${names[0]}.${names[1].replace(".jsx", "")}-Text-${index + 1}`;
+				key = `${names[0]}-${names[1].replace(".jsx", "")}-Text-${index + 1}`;
 				result = result.replace(`>${value}<`, ` id="${key}" >{i18next.t('${key}')}<`);
 				json[key] = value;
 				jsons[key] = value;
