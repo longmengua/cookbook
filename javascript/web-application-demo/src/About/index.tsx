@@ -22,9 +22,9 @@ const About: React.FC<AboutProps> = (props: AboutProps) => {
 	}, []);
 	return (
 		<div className={"About"}>
-			test
+			About
 		</div>
 	);
 };
 
-export default withRedux(About);
+export default About;

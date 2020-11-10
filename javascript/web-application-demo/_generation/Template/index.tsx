@@ -5,10 +5,12 @@ import {useEffect, useState} from "react";
 import {initTemplateState, TemplateProps, TemplateState} from "./interface";
 
 const Template: React.FC<TemplateProps> = (props: TemplateProps) => {
+
 	const [
 		state,
 		setState 
 	] = useState(initTemplateState as TemplateState);
+
 	useEffect(()=>{
 
 		/**
@@ -19,6 +21,7 @@ const Template: React.FC<TemplateProps> = (props: TemplateProps) => {
 		 * */
 		return ()=> {};
 	}, []);
+
 	return (
 		<div className={"Template"}>
 			test

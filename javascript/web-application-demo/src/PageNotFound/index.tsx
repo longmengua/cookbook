@@ -2,13 +2,15 @@ import "./index.sass";
 import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {initHomeState, HomeProps, HomeState} from "./interface";
+import {initPageNotFoundState, PageNotFoundProps, PageNotFoundState} from "./interface";
 
-const Home: React.FC<HomeProps> = (props: HomeProps) => {
+const PageNotFound: React.FC<PageNotFoundProps> = (props: PageNotFoundProps) => {
+
 	const [
 		state,
 		setState 
-	] = useState(initHomeState as HomeState);
+	] = useState(initPageNotFoundState as PageNotFoundState);
+
 	useEffect(()=>{
 
 		/**
@@ -19,11 +21,12 @@ const Home: React.FC<HomeProps> = (props: HomeProps) => {
 		 * */
 		return ()=> {};
 	}, []);
+
 	return (
-		<div className={"Home"}>
-			Home
+		<div className={"PageNotFound"}>
+			PageNotFound
 		</div>
 	);
 };
 
-export default Home;
+export default PageNotFound;

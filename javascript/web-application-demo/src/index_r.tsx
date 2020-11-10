@@ -5,22 +5,36 @@ import Header from "./Header";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
 import About from "./About";
-import {HashRouter, Route, Switch} from "react-router-dom";
+import PageNotFound from "./PageNotFound";
+import {HashRouter, Redirect, Route, Switch} from "react-router-dom";
 
-const routers: Array<{path: string, component: React.ReactNode}> = [
-	{path: '/dashboard', component: <Dashboard />},
-	{path: '/about', component: <About />} ,
-	{path: '/', component: <Home />}
+export type CustomRouter = {
+	path: string,
+	name: string,
+	display?: boolean,
+	component: React.ReactNode
+}
+
+// todo: @note Routers centralized management
+export const routers: Array<CustomRouter> = [
+	{path: '/', name: 'Home', component: <Home />},
+	{path: '/About', name: 'About', component: <About />} ,
+	{path: '/Dashboard', name: 'Dashboard', component: <Dashboard />},
+	{path: '/PageNotFound', name: 'PageNotFound', component: <PageNotFound />, display: false},
 ];
 
-const route = () => routers?.map(((o, i)=><Route key={i} path={o.path}>{o.component}</Route>));
+// todo: @note
+//  "exact = true" means precisely compare path,
+//  "exact = false" means display first match, usually using for the mis-mapping path.
+const route = () => routers?.map(((o, i)=><Route key={i} path={o.path} exact={true}>{o.component}</Route>));
 
 render(
 	<React.StrictMode>
-		<Header />
+		<Header routers={routers}/>
 		<HashRouter>
 			<Switch>
 				{route()}
+				<Redirect to="/PageNotFound" />
 			</Switch>
 		</HashRouter>
 	</React.StrictMode>,
