@@ -1,17 +1,18 @@
 import * as React from "react";
-import {useEffect, useState} from "react";
 import {
 	initwithReduxState,
-	withReduxState
+	withReduxState,
 } from "./interface";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import reducer from "./reducer";
 
-const withRedux: (props: React.ComponentType<any>) => any = (props) => {
+export const store = createStore(reducer, applyMiddleware());
+
+const withRedux: (props: JSX.Element | React.ReactNode | React.FC | Element) => React.ReactNode = (props) => {
 	return (
 		<div className={"withRedux"}>
-			<Provider store={createStore(reducer)}>
+			<Provider store={store}>
 				{props}
 			</Provider>
 		</div>

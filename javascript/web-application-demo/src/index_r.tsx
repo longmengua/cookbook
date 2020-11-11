@@ -5,8 +5,10 @@ import Header from "./Header";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
 import About from "./About";
+import Redux from "./Redux";
 import PageNotFound from "./PageNotFound";
-import {HashRouter, Redirect, Route, Switch} from "react-router-dom";
+import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
+import withRedux from "./withRedux";
 
 export type CustomRouter = {
 	path: string,
@@ -19,6 +21,7 @@ export type CustomRouter = {
 export const routers: Array<CustomRouter> = [
 	{path: '/', name: 'Home', component: <Home />},
 	{path: '/About', name: 'About', component: <About />} ,
+	{path: '/Redux', name: 'Redux', component: withRedux(<Redux />)} ,
 	{path: '/Dashboard', name: 'Dashboard', component: <Dashboard />},
 	{path: '/PageNotFound', name: 'PageNotFound', component: <PageNotFound />, display: false},
 ];

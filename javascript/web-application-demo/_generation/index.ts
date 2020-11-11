@@ -4,7 +4,7 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'PageNotFound';
+const moduleName = 'Redux';
 const writePath = path.resolve(`src/${moduleName}`);
 
 const templateName = 'Template';

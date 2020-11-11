@@ -11,7 +11,7 @@ const devServer = {
 	// ContentBasePublicPath: '/demo',
 	compress: true,
 	hot     : true,
-	// Lazy: true,
+	lazy    : true,
 	// UseLocalIp: true,
 	// When devServer.lazy is enabled, the dev-server will only compile the bundle when it gets requested.
 	// This means that webpack will not watch any file changes. We call this lazy mode.
@@ -47,8 +47,10 @@ const entry = {
 
 const output = {
 	path         : path.resolve("dist"),
-	filename     : "[contenthash:10].[name].js",
-	chunkFilename: '[contenthash:10].[name].js',
+	// filename     : "js/[contenthash:10].[name].js",
+	// chunkFilename: '[contenthash:10].[name].js',
+	filename     : "js/[name].js",
+	chunkFilename: '[name].js',
 };
 
 const plugins = [
@@ -57,6 +59,10 @@ const plugins = [
 	}),
 	(new webpack.HotModuleReplacementPlugin),// When using hot-reload, the CleanWebpackPlugin and devServer.lazy cannot turn on.
 	// New CleanWebpackPlugin(),
+	// new MiniCSSExtractPlugin({
+	// 	filename   : "static/css/[name].[contenthash:8].css",
+	// 	ignoreOrder: true,
+	// }),
 ];
 
 const _module = {
@@ -107,6 +113,7 @@ const _module = {
 			exclude: /node_modules/,
 			include: path.resolve('src'),
 			use    : [
+				// MiniCSSExtractPlugin.loader,
 				'style-loader',
 				'css-loader',
 			],
@@ -122,29 +129,48 @@ const _module = {
 			],
 		},
 		{
-			test  : /\.(png|jpe?g|gif)$/i,
-			loader: 'file-loader',
+			test     : /\.(png|jpe?g|gif)$/,
+			type     : "asset/resource",
+			generator: {
+				filename: "img/[name].[hash:8].[ext]",
+			},
+		},
+		{
+			test     : /\.(woff|woff2|eot|ttf|otf)$/,
+			type     : "asset/resource",
+			generator: {
+				filename: "font/[name].[hash:8].[ext]",
+			},
+		},
+		{
+			test     : /\.ico$/,
+			type     : "asset/resource",
+			generator: {
+				filename: "ico/[name].[hash:8].ico",
+			},
 		},
 	],
 };
 
-//https://juejin.im/post/6844903450644316174
-const devtool = "source-map";
+// https://juejin.im/post/6844903450644316174
+// Prod => cheap-module-source-map
+// Dev => cheap-module-eval-source-map
+const devtool = "cheap-module-source-map";
 
 const performance = {
 	hints            : "warning",
-	maxEntrypointSize: 512000,
-	maxAssetSize     : 512000,
+	maxEntrypointSize: 256000,
+	maxAssetSize     : 256000,
 };
 
 const optimization = {
 	usedExports : true,
 	runtimeChunk: true,
 	splitChunks : {
-		chunks                : "async",//Async, all,
+		chunks                : "async",//async, all,
 		minSize               : 0,
 		// MinRemainingSize: 0,
-		maxSize               : 20000,
+		maxSize               : 30000,
 		minChunks             : 1,
 		maxAsyncRequests      : 30,
 		maxInitialRequests    : 30,
@@ -173,7 +199,8 @@ const optimization = {
 };
 
 const config = {
-	mode  : 'development',//Development, production //set up as production will auto minify the js files.
+	// set up as production will auto minify the js files.
+	mode  : 'production', // development, production
 	module: _module,
 	entry,
 	output,
