@@ -12,6 +12,7 @@ import ScrollBar from "../widget/ScrollBar";
 import ScrollBarExample from "../example/ScrollBarExample";
 import HeaderFolderExample from "../example/HeaderFolderExample";
 import StarRatingAnimation from "../widget/StarRatingAnimation";
+import ToolTip from "../ToolTip";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	const [
@@ -43,11 +44,14 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 			<Area title={"Carousel Ad."}>
 				<Carousel />
 			</Area>
-			<Area title={"Header Collapse."} isExpand={true}>
+			<Area title={"Header Collapse"} isExpand={false}>
 				<HeaderFolderExample />
 			</Area>
-			<Area title={"Star Rating."} isExpand={false}>
+			<Area title={"Star Rating"} isExpand={false}>
 				<StarRatingAnimation />
+			</Area>
+			<Area title={"ToolTip"} isExpand={true}>
+				<ToolTip />
 			</Area>
 		</div>
 	);

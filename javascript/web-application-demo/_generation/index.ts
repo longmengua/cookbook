@@ -4,7 +4,7 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'Redux';
+const moduleName = 'ToolTip';
 const writePath = path.resolve(`src/${moduleName}`);
 
 const templateName = 'Template';

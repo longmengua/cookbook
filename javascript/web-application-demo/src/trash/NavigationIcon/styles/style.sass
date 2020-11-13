@@ -1,0 +1,136 @@
+.navigation-icon
+  position: relative
+  cursor: pointer
+  width:  53px
+  height: 53px
+  margin: 0 5.8px
+  .news
+    position: absolute
+    border-radius: 100%
+    text-shadow: 0 0 16px #e46565
+    background: #f75653
+    border: 1px solid #f6322e
+    color: #fff
+    width: 26px
+    height: 26px
+    box-sizing: border-box
+    margin-top: -5px
+    margin-left: 33px
+    text-align: center
+    line-height: 25px
+  .text
+    text-align: center
+    color: white
+  label
+    cursor: pointer
+    height: 100%
+    width: 100%
+    display: block
+    background-repeat: no-repeat
+    background-position: center
+  [type~=radio]
+    display: none
+  .home
+    background-image: url(../images/btn_home_n.png)
+    &:hover
+      background-image: url(../images/btn_home_h.png)
+  #footer-home:checked ~ .home
+    background-image: url(../images/btn_home_s.png)
+  .deposit
+    background-image: url(../images/btn_deposit_n.png)
+    &:hover
+      background-image: url(../images/btn_deposit_h.png)
+  #footer-deposit:checked ~ .deposit
+    background-image: url(../images/btn_deposit_s.png)
+  .withdraw
+    background-image: url(../images/btn_withdraw_n.png)
+    &:hover
+      background-image: url(../images/btn_withdraw_h.png)
+  #footer-withdraw:checked ~ .withdraw
+    background-image: url(../images/btn_withdraw_s.png)
+  .user
+    background-image: url(../images/btn_user_n.png)
+    &:hover
+      background-image: url(../images/btn_user_h.png)
+  #footer-user:checked ~ .user
+    background-image: url(../images/btn_user_s.png)
+  .agent
+    background-image: url(../images/btn_agent_n.png)
+    &:hover
+      background-image: url(../images/btn_agent_h.png)
+  #footer-agent:checked ~ .agent
+    background-image: url(../images/btn_agent_s.png)
+  .group-management
+    background-image: url(../images/btn_group_management_n.png)
+    &:hover
+      background-image: url(../images/btn_group_management_h.png)
+  #footer-group-management:checked ~ .group-management
+    background-image: url(../images/btn_group_management_s.png)
+  .activity-center
+    background-image: url(../images/btn_activity_center_n.png)
+    &:hover
+      background-image: url(../images/btn_activity_center_h.png)
+  #footer-activity-center:checked ~ .activity-center
+    background-image: url(../images/btn_activity_center_s.png)
+  .announcement
+    background-image: url(../images/btn_announcement_n.png)
+    &:hover
+      background-image: url(../images/btn_announcement_h.png)
+  #footer-announcement:checked ~ .announcement
+    background-image: url(../images/btn_announcement_s.png)
+  .mail
+    background-image: url(../images/btn_mail_n.png)
+    &:hover
+      background-image: url(../images/btn_mail_h.png)
+  #footer-mail:checked ~ .mail
+    background-image: url(../images/btn_mail_s.png)
+  .help
+    background-image: url(../images/btn_help_n.png)
+    &:hover
+      background-image: url(../images/btn_help_h.png)
+  #footer-help:checked ~ .help
+    background-image: url(../images/btn_help_s.png)
+  .download
+    background-image: url(../images/btn_download_n.png)
+    &:hover
+      background-image: url(../images/btn_download_h.png)
+  #footer-download:checked ~ .download
+    background-image: url(../images/btn_download_s.png)
+  .vip
+    background-image: url(../images/btn_vip_n.png)
+    &:hover
+      background-image: url(../images/btn_vip_h.png)
+    ~ .text 
+      line-height: 20px
+  #footer-vip:checked ~ .vip
+    background-image: url(../images/btn_vip_s.png)
+  .customer-service
+    background-image: url(../images/btn_service_n.png)
+    &:hover
+      background-image: url(../images/btn_service_h.png)
+  #footer-customer-service:checked ~ .customer-service
+    background-image: url(../images/btn_service_s.png)
+  .tooltipText
+    text-shadow: 1px 0 4px #fff2ad
+    background: rgba(255,242,173,0.97)
+    color: #181818
+    box-shadow: rgba(0, 0, 0, 0.36) 0 4px 10px 0
+    box-sizing: border-box
+    border-radius: 4px
+    padding: 8px
+    width: 150px
+    text-align: center
+    position: absolute
+    bottom: 120%
+    left: 50%
+    transform: translateX(-50%)
+
+    &::after
+      content: ""
+      position: absolute
+      top: 100%
+      left: 50%
+      margin-left: -5px
+      border-width: 5px
+      border-style: solid
+      border-color: rgba(255,242,173,0.97) transparent transparent transparent
