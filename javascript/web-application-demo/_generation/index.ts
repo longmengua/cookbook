@@ -4,7 +4,7 @@ const path = require('path');
 /**
  *
  * */
-const moduleName = 'ToolTip';
+const moduleName = 'Splash';
 const writePath = path.resolve(`src/${moduleName}`);
 
 const templateName = 'Template';

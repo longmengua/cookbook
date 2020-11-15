@@ -9,6 +9,7 @@ import Redux from "./Redux";
 import PageNotFound from "./PageNotFound";
 import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import withRedux from "./withRedux";
+import Splash from "./Splash";
 
 export type CustomRouter = {
 	path: string,
@@ -17,9 +18,12 @@ export type CustomRouter = {
 	component: React.ReactNode
 }
 
+export const homePagePath = "#Home";
+
 // todo: @note Routers centralized management
 export const routers: Array<CustomRouter> = [
-	{path: '/', name: 'Home', component: <Home />},
+	{path: '/', name: 'Splash', component: <Splash />, display: false},
+	{path: '/home', name: 'Home', component: <Home />},
 	{path: '/About', name: 'About', component: <About />} ,
 	{path: '/Redux', name: 'Redux', component: withRedux(<Redux />)} ,
 	{path: '/Dashboard', name: 'Dashboard', component: <Dashboard />},

@@ -2,20 +2,26 @@ import "./index.sass";
 import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {initTemplateState, TemplateProps, TemplateState} from "./interface";
+import {initSplashState, SplashProps, SplashState} from "./interface";
+import {homePagePath, routers} from "../index_r";
 
-const Template: React.FC<TemplateProps> = (props: TemplateProps) => {
+const Splash: React.FC<SplashProps> = (props: SplashProps) => {
 
 	const [
 		state,
 		setState 
-	] = useState(initTemplateState as TemplateState);
+	] = useState(initSplashState as SplashState);
 
 	useEffect(()=>{
 
 		/**
 		 * ... here is for componentDidMount and componentDidUpdate will trigger this
 		 * */
+		setTimeout(()=> {
+			//loads a new document
+			window.location.assign(homePagePath);
+		}, 1000);
+
 		/**
 		 * The function given to return is for componentWillUnmount()
 		 * */
@@ -23,10 +29,10 @@ const Template: React.FC<TemplateProps> = (props: TemplateProps) => {
 	}, []);
 
 	return (
-		<div className={"Template"}>
-			Template
+		<div className={"Splash"}>
+			Splash
 		</div>
 	);
 };
 
-export default Template;
+export default Splash;
