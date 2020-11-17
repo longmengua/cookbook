@@ -8,11 +8,12 @@ import Area from "../widget/Area";
 import InputContainer1 from "../widget/InputContainer1";
 import SquareRotation from "../widget/SquareRotation";
 import Carousel from "../widget/Carousel";
-import ScrollBar from "../widget/ScrollBar";
-import ScrollBarExample from "../example/ScrollBarExample";
-import HeaderFolderExample from "../example/HeaderFolderExample";
+import ScrollBarExample from "../dashboardDetails/ScrollBarExample";
+import HeaderFolderExample from "../dashboardDetails/HeaderFolderExample";
 import StarRatingAnimation from "../widget/StarRatingAnimation";
-import ToolTip from "../ToolTip";
+import ToolTipContainer from "../widget/ToolTipContainer";
+import ButtonContainer from "../widget/ButtonContainer";
+import ToolTipContainer1 from "../widget/ToolTipContainer1";
 
 const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	const [
@@ -31,9 +32,12 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 	}, []);
 	return (
 		<div className={"Dashboard"}>
-			<Area title={"Input"}>
+			<Area title={"Text Inputs"}>
 				<InputContainer labelName={"Name"}/>
 				<InputContainer1 labelName={"Name"}/>
+			</Area>
+			<Area title={"Buttons"}>
+				<ButtonContainer />
 			</Area>
 			<Area title={"3D"}>
 				<SquareRotation />
@@ -50,8 +54,9 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
 			<Area title={"Star Rating"} isExpand={false}>
 				<StarRatingAnimation />
 			</Area>
-			<Area title={"ToolTip"} isExpand={true}>
-				<ToolTip />
+			<Area title={"ToolTips"} isExpand={true}>
+				<ToolTipContainer />
+				<ToolTipContainer1 />
 			</Area>
 		</div>
 	);

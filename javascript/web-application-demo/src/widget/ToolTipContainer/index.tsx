@@ -2,14 +2,14 @@ import "./index.sass";
 import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {initToolTipState, ToolTipProps, ToolTipState} from "./interface";
+import {initToolTipContainerState, ToolTipContainerProps, ToolTipContainerState} from "./interface";
 
-const ToolTip: React.FC<ToolTipProps> = (props: ToolTipProps) => {
+const ToolTipContainer: React.FC<ToolTipContainerProps> = (props: ToolTipContainerProps) => {
 
 	const [
 		state,
 		setState 
-	] = useState(initToolTipState as ToolTipState);
+	] = useState(initToolTipContainerState as ToolTipContainerState);
 
 	useEffect(()=>{
 
@@ -23,10 +23,11 @@ const ToolTip: React.FC<ToolTipProps> = (props: ToolTipProps) => {
 	}, []);
 
 	return (
-		<div className={"ToolTip"}>
-			test<div className={"tip"}>请复制实际充值金额</div>
+		<div className={"ToolTipContainer"}>
+			test
+			<div className={"tip"}>Hot</div>
 		</div>
 	);
 };
 
-export default ToolTip;
+export default ToolTipContainer;

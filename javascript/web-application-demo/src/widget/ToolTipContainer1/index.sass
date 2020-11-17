@@ -1,0 +1,72 @@
+.ToolTipContainer1
+  text-align: center
+  .target
+    width: 300px
+    line-height: 300px
+    border: 1px solid lightblue
+    border-radius: 10px
+    padding: 10px
+
+  .tooltip
+    position: relative
+    display: inline-block
+    &:hover
+      .tipTop
+        visibility: visible
+      .tipLeft
+        visibility: visible
+      .tipRight
+        visibility: visible
+      .tipBottom
+        visibility: visible
+
+    .tipText
+      z-index: 1
+      position: absolute
+      visibility: hidden
+      background-color: lightcoral
+      color: #fff
+      text-align: center
+      border-radius: 5px
+      padding: 0 10px
+      white-space: nowrap
+      display: inline-block
+      &::after
+        content: ""
+        position: absolute
+        border-width: 10px
+        border-style: solid
+
+    .tipTop
+      top: 0
+      transform: translate(calc(-50% - 0px), calc(-100% - 20px))
+      &::after
+        border-color: lightcoral transparent transparent transparent
+        bottom: calc(0% - 20px)
+        right: calc(50% - 10px)
+
+    .tipRight
+      top: 50%
+      right: 0
+      transform: translate(calc(100% + 20px), calc(-50% - 0px))
+      &::after
+        border-color: transparent lightcoral transparent transparent
+        right: calc(100% - 1px)
+        bottom: calc(50% - 10px)
+
+    .tipBottom
+      top: 100%
+      transform: translate(calc(-50% - 0px), calc(0% + 20px))
+      &::after
+        top: calc(0% - 20px)
+        right: calc(50% - 10px)
+        border-color: transparent transparent lightcoral transparent
+
+    .tipLeft
+      top: 50%
+      left: 0
+      transform: translate(calc(-100% - 20px), calc(-50% - 0px))
+      &::after
+        border-color: transparent transparent transparent lightcoral
+        left: calc(100% - 1px)
+        top: calc(50% - 10px)

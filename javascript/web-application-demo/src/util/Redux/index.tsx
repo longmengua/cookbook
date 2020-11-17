@@ -3,11 +3,9 @@ import "./index_c.css";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {initReduxState, ReduxProps, ReduxState} from "./interface";
-import withRedux from "../withRedux";
-import {connect} from "react-redux";
-import InputContainer from "../widget/InputContainer";
-import InputContainer1 from "../widget/InputContainer1";
-import Area from "../widget/Area";
+import Area from "../../widget/Area";
+import InputContainer from "../../widget/InputContainer";
+import InputContainer1 from "../../widget/InputContainer1";
 
 const Redux: React.FC<ReduxProps> = (props: ReduxProps) => {
 

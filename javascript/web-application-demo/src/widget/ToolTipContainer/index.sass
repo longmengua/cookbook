@@ -1,0 +1,23 @@
+.ToolTipContainer
+  .tip
+    //for adjusting position of tooltip
+    vertical-align: text-bottom
+    // margin-left -> adjust distance between text and tip.
+    margin-left: 10px
+    padding-right: 10px
+    background-color: lightcoral
+    display: inline
+    border-radius: 8px
+    color: white
+    cursor: default
+    &:before
+      //margin-right for the padding left of tooltip, adjusting with padding-right of .tip class
+      margin-right: 5px
+      //margin-left will be the same as width.
+      margin-left: -15px
+      width: 15px
+      height: 12px
+      content: " "
+      display: inline-block
+      background-color: lightcoral
+      clip-path: polygon(50% 50%, 100% 0%,100% 100%)

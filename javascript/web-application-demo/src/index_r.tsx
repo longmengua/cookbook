@@ -5,7 +5,7 @@ import Header from "./Header";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
 import About from "./About";
-import Redux from "./Redux";
+import Redux from "./util/Redux";
 import PageNotFound from "./PageNotFound";
 import {HashRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import withRedux from "./withRedux";
