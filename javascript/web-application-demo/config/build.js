@@ -2,8 +2,6 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-const root = path.resolve("");
-
 const devServer = {
 	port    : 1234,
 	// Index: path.resolve("index.html"),

@@ -4,6 +4,8 @@
   "description": "",
   "scripts": {
     "convert": "node _convert/index.ts",
+    "translate": "node _translate/index.ts",
+    "revertTranslate": "node _revertTranslate/index.ts",
     "gen": "node _generation/index.ts",
     "lint": "eslint --fix src/*/*.tsx src/*.tsx --ignore-pattern '/node_modules/'",
     "build": "webpack --config config/build.js",
