@@ -2,7 +2,7 @@ import express, { Application, Response, Request, NextFunction } from 'express';
 import fs, {ReadStream} from 'fs';
 import path from 'path';
 import mongoose from "mongoose";
-import Profile from "./repository/Profile";
+import Profile from "./controller/Profile";
 
 const initDB = () => {
 	const uri = "mongodb+srv://admin:admin@cluster0.74fjw.gcp.mongodb.net/demo?retryWrites=true&w=majority";
