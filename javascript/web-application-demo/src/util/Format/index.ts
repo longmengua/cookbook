@@ -1,5 +1,5 @@
 const formatMoney = (money: string | number) =>
-	JSON.stringify(money)
+	money?.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
 const formatMarketCap = (num: number, digits: number) => {
