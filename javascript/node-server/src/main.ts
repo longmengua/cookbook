@@ -2,26 +2,11 @@ import express, { Application, Response, Request, NextFunction } from 'express';
 import fs, {ReadStream} from 'fs';
 import path from 'path';
 import mongoose from "mongoose";
+import "./config/mongodb";
 import Profile from "./controller/Profile";
-
-const initDB = () => {
-	const uri = "mongodb+srv://admin:admin@cluster0.74fjw.gcp.mongodb.net/demo?retryWrites=true&w=majority";
-
-	mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
-		.then(r => r);
-
-	const db = mongoose.connection;
-
-	db.on('error', console.error.bind(console, 'connection error:'));
-	db.once('open', function() {
-		console.log("we're connected!")
-	});
-};
 
 const app: Application = express();
 const port: number = 8000;
-
-initDB();
 
 app.listen(port, function () {
 	console.log('App is listening ' + port);
@@ -31,6 +16,7 @@ app.listen(port, function () {
  * root path
  * */
 app.get('/', (req: Request, res: Response) => {
+	console.log("test");
 	res.send('Hello World!');
 });
 
@@ -43,6 +29,19 @@ app.get('/json/:name', (req: Request, res: Response, next: NextFunction) => {
 	// const param = req.query['p'];
 	const stream: ReadStream = fs.createReadStream(path.resolve(sourcePath, `${name}.json`));
 	stream.pipe(res);
+});
+
+app.post('/todos', (req: Request, res) => {
+	let data = '';
+	req.on('data', chunk => {
+		console.log(chunk);
+		data += chunk;
+	});
+
+	req.on('end', () => {
+		console.log(">>",data);
+		res.send(data);
+	})
 });
 
 Profile(app, mongoose);
