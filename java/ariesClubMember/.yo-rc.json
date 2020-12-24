@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "aries.financial",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "microservice",
+    "baseName": "ariesClubMember",
+    "packageName": "aries.financial",
+    "packageFolder": "aries/financial",
+    "serverPort": "9999",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Zjc4OTlmZWJmYWRkODU5ZjEyYTc0YzEzOGFhNWJlODcyM2E2MGU4NGZmNmU5NWU0NzY4MjA4MWM0MzcxODdkMDc0OTY4NzMzMzBmNTNkN2RkMzIzMDEyZjkwYzBlMDA2NWJjMDIxYzNiOTg3N2RjMTZiMGMxZGRkOTQ4MWFlNjA=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1608832758917,
+    "testFrameworks": ["gatling"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": ["en", "zh-cn", "zh-tw", "ja"],
+    "blueprints": [],
+    "reactive": true,
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
