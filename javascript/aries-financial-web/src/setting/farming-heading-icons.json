@@ -1,0 +1,17 @@
+{
+  "curve.fi/Compound LP": "compound.png",
+  "curve.fi/3pool LP": "3Crv.png",
+  "curve.fi/y LP": "curve.fi.y.png",
+  "curve.fi/busd LP": "curve.fi.busd.png",
+  "curve.fi/sbtc LP": "crvBTC.png",
+  "DAI": "DAI.png",
+  "USDT": "USDT.png",
+  "TUSD": "TUSD.png",
+  "USD Coin": "USDC.png",
+  "Gemini Dollar": "GUSD.png",
+  "aLINK": "aLINK.png",
+  "ChainLink": "ChainLINK.png",
+  "WETH": "WETH.png",
+  "ETH": "ETH.png",
+  "yearn.finance": "yearn.png"
+}

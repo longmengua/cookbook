@@ -1,0 +1,47 @@
+#FarmingClock
+    margin: 0 30px
+    width: 350px
+    display: flex
+    flex-direction: column
+    border: 1px solid rgba(25, 101, 233, 0.5)
+    border-radius: 5px
+    padding: 10px 30px
+    box-sizing: border-box
+    transition-duration: 0.5s
+    transform: translate(-3px, -3px)
+    box-shadow: 3px 3px rgba(25, 101, 233, 0.5)
+
+    .timer
+        text-align: center
+        padding: 5px
+        font-size: 20px
+        font-weight: bold
+        font-family: monospace
+
+    .title
+        text-align: center
+        padding: 5px
+        font-size: 24px
+
+    .space
+        height: 20px
+        width: 100%
+
+    .Button
+        text-align: center
+        padding: 10px 13px
+        border: 1px solid rgba(244,199,87, 0.5)
+        font-weight: bold
+        border-radius: 5px
+        box-sizing: border-box
+        cursor: pointer
+        transition-duration: 0.5s
+        transform: translate(-3px, -3px)
+        box-shadow: 3px 3px rgba(244,199,87, 0.7)
+        background-color: rgba(244,199,87, 0.2)
+        &:active
+            transition-duration: 0.1s
+            transform: translate(0, 0)
+            box-shadow: 0 0 rgba(244,199,87, 0.7)
+        &.disabled
+            border: 1px solid gray
