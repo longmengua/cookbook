@@ -1,23 +1,22 @@
 import { IUser } from '@entities/User';
-
-
+import logger from '@shared/Logger';
 
 export interface IUserDao {
     getOne: (email: string) => Promise<IUser | null>;
     getAll: () => Promise<IUser[]>;
-    add: (user: IUser) => Promise<void>;
-    update: (user: IUser) => Promise<void>;
-    delete: (id: number) => Promise<void>;
+    add: (user: IUser) => Promise<IUser>;
+    update: (user: IUser) => Promise<IUser>;
+    delete: (id: number) => Promise<IUser>;
 }
 
 class UserDao implements IUserDao {
-
 
     /**
      * @param email
      */
     public getOne(email: string): Promise<IUser | null> {
         // TODO
+        logger.info(`UserDao - getOne : ${email}`);
         return Promise.resolve(null);
     }
 
@@ -35,9 +34,10 @@ class UserDao implements IUserDao {
      *
      * @param user
      */
-    public async add(user: IUser): Promise<void> {
+    public async add(user: IUser): Promise<IUser> {
          // TODO
-        return Promise.resolve(undefined);
+        logger.info(`UserDao - getOne :` + user);
+        return Promise.resolve(user);
     }
 
 
@@ -45,9 +45,10 @@ class UserDao implements IUserDao {
      *
      * @param user
      */
-    public async update(user: IUser): Promise<void> {
+    public async update(user: IUser): Promise<IUser> {
          // TODO
-        return Promise.resolve(undefined);
+        logger.info(`UserDao - getOne :` + user);
+        return Promise.resolve(user);
     }
 
 
@@ -55,9 +56,11 @@ class UserDao implements IUserDao {
      *
      * @param id
      */
-    public async delete(id: number): Promise<void> {
+    public async delete(id: number): Promise<IUser> {
+        const user: IUser = {} as IUser;
          // TODO
-        return Promise.resolve(undefined);
+        logger.info(`UserDao - getOne : ${id}`);
+        return Promise.resolve(user);
     }
 }
 

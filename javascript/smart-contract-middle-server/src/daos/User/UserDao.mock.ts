@@ -3,8 +3,6 @@ import { getRandomInt } from '@shared/functions';
 import { IUserDao } from './UserDao';
 import MockDaoMock from '../MockDb/MockDao.mock';
 
-
-
 class UserDao extends MockDaoMock implements IUserDao {
 
 
@@ -18,41 +16,40 @@ class UserDao extends MockDaoMock implements IUserDao {
         return null;
     }
 
-
     public async getAll(): Promise<IUser[]> {
         const db = await super.openDb();
         return db.users;
     }
 
 
-    public async add(user: IUser): Promise<void> {
+    public async add(user: IUser): Promise<IUser> {
         const db = await super.openDb();
         user.id = getRandomInt();
         db.users.push(user);
         await super.saveDb(db);
+        return user;
     }
 
-
-    public async update(user: IUser): Promise<void> {
+    public async update(user: IUser): Promise<IUser> {
         const db = await super.openDb();
         for (let i = 0; i < db.users.length; i++) {
             if (db.users[i].id === user.id) {
                 db.users[i] = user;
                 await super.saveDb(db);
-                return;
+                return user;
             }
         }
         throw new Error('User not found');
     }
 
-
-    public async delete(id: number): Promise<void> {
+    public async delete(id: number): Promise<IUser> {
         const db = await super.openDb();
         for (let i = 0; i < db.users.length; i++) {
             if (db.users[i].id === id) {
+                const toReturn: IUser = {...db.users[i]};
                 db.users.splice(i, 1);
                 await super.saveDb(db);
-                return;
+                return toReturn;
             }
         }
         throw new Error('User not found');

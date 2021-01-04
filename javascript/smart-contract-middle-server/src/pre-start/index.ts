@@ -19,10 +19,9 @@ import commandLineArgs from 'command-line-args';
             type: String,
         },
     ]);
+    const _path: string = path.join(__dirname, `env/${options.env}.env`);
     // Set the env file
-    const result2 = dotenv.config({
-        path: path.join(__dirname, `env/${options.env}.env`),
-    });
+    const result2 = dotenv.config({path: _path});
     if (result2.error) {
         throw result2.error;
     }

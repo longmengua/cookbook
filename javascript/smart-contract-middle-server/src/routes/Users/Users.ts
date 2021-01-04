@@ -1,8 +1,9 @@
 import StatusCodes from 'http-status-codes';
-import { Request, Response, Router } from 'express';
+import {Request, Response, Router} from 'express';
 
 import UserDao from '@daos/User/UserDao.mock';
-import { paramMissingError, IRequest } from '@shared/constants';
+import {IRequest, paramMissingError} from '@shared/constants';
+import {IUser} from "@entities/User";
 
 const router = Router();
 const userDao = new UserDao();
@@ -14,9 +15,9 @@ const { BAD_REQUEST, CREATED, OK } = StatusCodes;
  *                      Get All Users - "GET /api/users/all"
  ******************************************************************************/
 
-router.get('/all', async (req: Request, res: Response) => {
-    const users = await userDao.getAll();
-    return res.status(OK).json({users});
+router.get('/all', async (req: Request, res: Response): Promise<Response> => {
+    const data: IUser[] = await userDao.getAll();
+    return res.status(OK).json({data});
 });
 
 
@@ -25,15 +26,15 @@ router.get('/all', async (req: Request, res: Response) => {
  *                       Add One - "POST /api/users/add"
  ******************************************************************************/
 
-router.post('/add', async (req: IRequest, res: Response) => {
+router.post('/add', async (req: IRequest, res: Response): Promise<Response> => {
     const { user } = req.body;
     if (!user) {
         return res.status(BAD_REQUEST).json({
             error: paramMissingError,
         });
     }
-    await userDao.add(user);
-    return res.status(CREATED).end();
+    const data: IUser = await userDao.add(user);
+    return res.status(CREATED).json({data: data});
 });
 
 
@@ -42,7 +43,7 @@ router.post('/add', async (req: IRequest, res: Response) => {
  *                       Update - "PUT /api/users/update"
  ******************************************************************************/
 
-router.put('/update', async (req: IRequest, res: Response) => {
+router.put('/update', async (req: IRequest, res: Response): Promise<Response> => {
     const { user } = req.body;
     if (!user) {
         return res.status(BAD_REQUEST).json({
@@ -50,8 +51,8 @@ router.put('/update', async (req: IRequest, res: Response) => {
         });
     }
     user.id = Number(user.id);
-    await userDao.update(user);
-    return res.status(OK).end();
+    const data: IUser = await userDao.update(user);
+    return res.status(OK).json({data: data});
 });
 
 
@@ -60,10 +61,10 @@ router.put('/update', async (req: IRequest, res: Response) => {
  *                    Delete - "DELETE /api/users/delete/:id"
  ******************************************************************************/
 
-router.delete('/delete/:id', async (req: IRequest, res: Response) => {
+router.delete('/delete/:id', async (req: IRequest, res: Response): Promise<Response> => {
     const { id } = req.params;
-    await userDao.delete(Number(id));
-    return res.status(OK).end();
+    const data: IUser = await userDao.delete(Number(id));
+    return res.status(OK).json({data: data});
 });
 
 
