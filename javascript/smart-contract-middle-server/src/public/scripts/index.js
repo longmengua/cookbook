@@ -9,7 +9,7 @@ function displayUsers() {
     httpGet('/api/users/all')
         .then(response => response.json())
         .then((response) => {
-            var allUsers = response.users;
+            var allUsers = response;
             // Empty the anchor
             var allUsersAnchor = document.getElementById('all-users-anchor');
             allUsersAnchor.innerHTML = '';

@@ -12,12 +12,34 @@ const { BAD_REQUEST, CREATED, OK } = StatusCodes;
 
 
 /******************************************************************************
+ *  Get Balance with User's Wallet address and pool address - "GET /api/users/all"
+ ******************************************************************************/
+
+router.get('/balance', async (req: Request, res: Response): Promise<Response> => {
+
+    return res.status(OK).json("balance");
+});
+
+
+
+/******************************************************************************
+ *  Get Bonus Reward with User's Wallet address and pool address - "GET /api/users/all"
+ ******************************************************************************/
+
+router.get('/bonus', async (req: Request, res: Response): Promise<Response> => {
+
+    return res.status(OK).json("bonus");
+});
+
+
+
+/******************************************************************************
  *                      Get All Users - "GET /api/users/all"
  ******************************************************************************/
 
 router.get('/all', async (req: Request, res: Response): Promise<Response> => {
     const data: IUser[] = await userDao.getAll();
-    return res.status(OK).json({data});
+    return res.status(OK).json(data);
 });
 
 
@@ -34,7 +56,7 @@ router.post('/add', async (req: IRequest, res: Response): Promise<Response> => {
         });
     }
     const data: IUser = await userDao.add(user);
-    return res.status(CREATED).json({data: data});
+    return res.status(CREATED).json(data);
 });
 
 
@@ -52,7 +74,7 @@ router.put('/update', async (req: IRequest, res: Response): Promise<Response> =>
     }
     user.id = Number(user.id);
     const data: IUser = await userDao.update(user);
-    return res.status(OK).json({data: data});
+    return res.status(OK).json(data);
 });
 
 
@@ -64,7 +86,7 @@ router.put('/update', async (req: IRequest, res: Response): Promise<Response> =>
 router.delete('/delete/:id', async (req: IRequest, res: Response): Promise<Response> => {
     const { id } = req.params;
     const data: IUser = await userDao.delete(Number(id));
-    return res.status(OK).json({data: data});
+    return res.status(OK).json(data);
 });
 
 
