@@ -11,11 +11,6 @@ type ContractInterface = {
     method?: string,
 }
 
-const _RPC_URLS = {
-    dev: "https://rinkeby.infura.io/v3/e117f524e71d42ec85df7fbdfe2e46e3",
-    prod: "https://eth-mainnet.alchemyapi.io/v2/Fzjec9nubY8kwQ7KyCdW--u3B8swwNSg",
-};
-
 const ContractConfig: ContractInterface[] = ((_provider: Provider) => [
     {
         id: "",
@@ -45,6 +40,6 @@ const ContractConfig: ContractInterface[] = ((_provider: Provider) => [
         contractAddress: "",
         contractAbi: "",
     }
-])(new providers.JsonRpcProvider(_RPC_URLS.prod))
+])(new providers.JsonRpcProvider(process.env.RPC_URL));
 
 export { ContractInterface, ContractConfig }
