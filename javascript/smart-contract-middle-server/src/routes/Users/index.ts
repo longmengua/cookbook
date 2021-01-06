@@ -1,7 +1,6 @@
 import StatusCodes from 'http-status-codes';
 import {Request, Response, Router} from 'express';
 
-import UserDaoMock from '@daos/User/UserDao.mock';
 import UserDao, {IUserDao} from '@daos/User/UserDao';
 import {IRequest, paramMissingError} from '@shared/constants';
 import {IUser} from "@entities/User";
@@ -9,7 +8,6 @@ import logger from "@shared/Logger";
 
 const router = Router();
 const { BAD_REQUEST, CREATED, OK, INTERNAL_SERVER_ERROR } = StatusCodes;
-const userDaoMock = new UserDaoMock();
 const userDao: IUserDao = new UserDao();
 
 
@@ -56,7 +54,7 @@ router.post('/bonus', async (req: Request, res: Response): Promise<Response> => 
  ******************************************************************************/
 
 router.get('/all', async (req: Request, res: Response): Promise<Response> => {
-    const data: IUser[] = await userDaoMock.getAll();
+    const data: IUser[] = [];
     logger.info('/all' + data);
     return res.status(OK).json(data);
 });
@@ -76,7 +74,7 @@ router.post('/add', async (req: IRequest, res: Response): Promise<Response> => {
             error: paramMissingError,
         });
     }
-    const data: IUser = await userDaoMock.add(user);
+    const data: IUser = {} as IUser;
     logger.info('/add' + data);
     return res.status(CREATED).json(data);
 });
@@ -97,7 +95,7 @@ router.put('/update', async (req: IRequest, res: Response): Promise<Response> =>
         });
     }
     user.id = Number(user.id);
-    const data: IUser = await userDaoMock.update(user);
+    const data: IUser = {} as IUser;
     logger.info('/update' + data);
     return res.status(OK).json(data);
 });
@@ -110,7 +108,7 @@ router.put('/update', async (req: IRequest, res: Response): Promise<Response> =>
 
 router.delete('/delete/:id', async (req: IRequest, res: Response): Promise<Response> => {
     const { id } = req.params;
-    const data: IUser = await userDaoMock.delete(Number(id));
+    const data: IUser = {} as IUser;
     logger.info('/delete' + data);
     return res.status(OK).json(data);
 });
