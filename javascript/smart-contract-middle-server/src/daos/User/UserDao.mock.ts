@@ -3,8 +3,15 @@ import { getRandomInt } from '@shared/functions';
 import { IUserDao } from './UserDao';
 import MockDaoMock from '../MockDb/MockDao.mock';
 
-class UserDao extends MockDaoMock implements IUserDao {
+export default class UserDaoMock extends MockDaoMock implements IUserDao {
 
+    public async getAFIStakedBalance(): Promise<any> {
+
+    }
+
+    public async getAFIBonusReward(): Promise<any> {
+
+    }
 
     public async getOne(email: string): Promise<IUser | null> {
         const db = await super.openDb();
@@ -55,5 +62,3 @@ class UserDao extends MockDaoMock implements IUserDao {
         throw new Error('User not found');
     }
 }
-
-export default UserDao;

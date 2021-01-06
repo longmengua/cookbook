@@ -9,10 +9,11 @@ import 'express-async-errors';
 
 import BaseRouter from './routes';
 import logger from '@shared/Logger';
+import bodyParser from "body-parser";
 
 const app = express();
 const { BAD_REQUEST } = StatusCodes;
-
+const jsonParser = bodyParser.json()
 
 /************************************************************************************
  *                              Set basic express settings
@@ -21,6 +22,7 @@ const { BAD_REQUEST } = StatusCodes;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
+app.use(jsonParser);
 
 // Show routes called in console during development
 if (process.env.NODE_ENV === 'development') {
@@ -58,3 +60,4 @@ app.get('*', (req: Request, res: Response) => {
 
 // Export express instance
 export default app;
+export { jsonParser }
