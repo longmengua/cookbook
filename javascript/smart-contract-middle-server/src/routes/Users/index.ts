@@ -2,7 +2,7 @@ import StatusCodes from 'http-status-codes';
 import {Request, Response, Router} from 'express';
 
 import UserDao, {IUserDao} from '@daos/User/UserDao';
-import {IRequest, paramMissingError} from '@shared/constants';
+import { paramMissingError } from '@shared/constants';
 import {IUser} from "@entities/User";
 import logger from "@shared/Logger";
 
@@ -67,7 +67,7 @@ router.get('/all', async (req: Request, res: Response): Promise<Response> => {
  *   @apiNote Content-Type must be set as application/json in request header
  ******************************************************************************/
 
-router.post('/add', async (req: IRequest, res: Response): Promise<Response> => {
+router.post('/add', async (req: Request, res: Response): Promise<Response> => {
     const { user } = req.body;
     if (!user) {
         return res.status(BAD_REQUEST).json({
@@ -87,7 +87,7 @@ router.post('/add', async (req: IRequest, res: Response): Promise<Response> => {
  *   @apiNote Content-Type must be set as application/json in request header
  ******************************************************************************/
 
-router.put('/update', async (req: IRequest, res: Response): Promise<Response> => {
+router.put('/update', async (req: Request, res: Response): Promise<Response> => {
     const { user } = req.body;
     if (!user) {
         return res.status(BAD_REQUEST).json({
@@ -106,7 +106,7 @@ router.put('/update', async (req: IRequest, res: Response): Promise<Response> =>
  *                    Delete - "DELETE /api/users/delete/:id"
  ******************************************************************************/
 
-router.delete('/delete/:id', async (req: IRequest, res: Response): Promise<Response> => {
+router.delete('/delete/:id', async (req: Request, res: Response): Promise<Response> => {
     const { id } = req.params;
     const data: IUser = {} as IUser;
     logger.info('/delete' + data);
