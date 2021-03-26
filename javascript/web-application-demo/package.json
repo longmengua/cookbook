@@ -7,6 +7,7 @@
     "translate": "node _translate/index.ts",
     "revertTranslate": "node _revertTranslate/index.ts",
     "gen": "node _generation/index.ts",
+    "genV2": "node _generationV2/index.ts",
     "lint": "eslint --fix src/*/*.tsx src/*.tsx --ignore-pattern '/node_modules/'",
     "build": "webpack --config config/build.js",
     "serve": "webpack-dev-server --config config/build.js",
@@ -44,7 +45,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "mini-css-extract-plugin": "^1.3.0",
-    "css-minimizer-webpack-plugin": "^1.1.5"
+    "css-minimizer-webpack-plugin": "^1.1.5",
+    "decimal.js": "^10.2.1"
   },
   "dependencies": {}
 }
