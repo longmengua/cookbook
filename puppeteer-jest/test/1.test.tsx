@@ -163,6 +163,6 @@ describe("測試", () => {
     // }, 60*1000);
 
     afterAll(async ()=>{
-        await browser.close();
+        // await browser.close();
     }, 60*1000);
 });
